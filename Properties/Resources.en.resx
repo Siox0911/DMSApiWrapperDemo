@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Make settings for the DVBViewer Media server</value>
+  </data>
+  <data name="RecordingEditTitle" xml:space="preserve">
+    <value>Edit Recording</value>
+  </data>
+  <data name="Hostname" xml:space="preserve">
+    <value>Hostname</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="PlayCompleteList" xml:space="preserve">
+    <value>Play (complete list)</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveAndTest" xml:space="preserve">
+    <value>Save and test</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="ChooseDVBViewer" xml:space="preserve">
+    <value>Select DVBViewer</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DescSearch" xml:space="preserve">
+    <value>Search in the description</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="DVBClients" xml:space="preserve">
+    <value>DVBViewer Clients</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditMode" xml:space="preserve">
+    <value>Edit Mode</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="LocalPlayer" xml:space="preserve">
+    <value>Local video player</value>
+  </data>
+  <data name="MoveToSeries" xml:space="preserve">
+    <value>Move to the series</value>
+  </data>
+  <data name="NumberRecordings" xml:space="preserve">
+    <value>Number of recordings:</value>
+  </data>
+  <data name="Playback" xml:space="preserve">
+    <value>Playback</value>
+  </data>
+  <data name="PlayBackOtherOptions" xml:space="preserve">
+    <value>Playback other options</value>
+  </data>
+  <data name="PlayInDVBViewer" xml:space="preserve">
+    <value>Play in DVBViewer</value>
+  </data>
+  <data name="Recordingdate" xml:space="preserve">
+    <value>Recorded</value>
+  </data>
+  <data name="Recordings" xml:space="preserve">
+    <value>Recordings</value>
+  </data>
+  <data name="Recording_s" xml:space="preserve">
+    <value>Recording(s)</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Series" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="Serverstatus" xml:space="preserve">
+    <value>Serverstatus</value>
+  </data>
+  <data name="Servertasks" xml:space="preserve">
+    <value>Servertasks</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsPWUSER" xml:space="preserve">
+    <value>Host name, port, user and password must be completed.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TitleSearch" xml:space="preserve">
+    <value>Search in the title</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="ViewAllRecordings" xml:space="preserve">
+    <value>Show all recordings</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="FilterAdditionalToolTip" xml:space="preserve">
+    <value>The filter does not select additionally</value>
+  </data>
+  <data name="EditModeToolTip" xml:space="preserve">
+    <value>Activates Edit Mode to edit recordings. In addition, the details are deactivated when clicking on a line. It is also possible to mark several recordings at the same time.</value>
+  </data>
+  <data name="Picture" xml:space="preserve">
+    <value>Picture</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ClickExpand" xml:space="preserve">
+    <value>Click to expand</value>
+  </data>
+  <data name="ConnectedWith" xml:space="preserve">
+    <value>connected with</value>
+  </data>
+  <data name="Filename" xml:space="preserve">
+    <value>Filename</value>
+  </data>
+  <data name="NumberVideos" xml:space="preserve">
+    <value>Number of videos:</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="PathSearch" xml:space="preserve">
+    <value>Search in the path</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="ViewAllVideos" xml:space="preserve">
+    <value>Show all videos</value>
+  </data>
+  <data name="UsedSpace" xml:space="preserve">
+    <value>Used space:</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="FileInfo" xml:space="preserve">
+    <value>File Info</value>
+  </data>
+  <data name="InfoFile" xml:space="preserve">
+    <value>Info File</value>
+  </data>
+  <data name="SubTitle" xml:space="preserve">
+    <value>Subtitel (Info)</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ChangesSeriesFromNumberToName" xml:space="preserve">
+    <value>recordings to the series</value>
+  </data>
+  <data name="ChangesSeriesNextNumber" xml:space="preserve">
+    <value>This changes the series of</value>
+  </data>
+  <data name="CheckDialogHeader" xml:space="preserve">
+    <value>Security Check</value>
+  </data>
+  <data name="UpdateFailedWithCode" xml:space="preserve">
+    <value>Update failed, the server replied with the message:</value>
+  </data>
+  <data name="UpdateSucceed" xml:space="preserve">
+    <value>The update was successfull.</value>
+  </data>
+  <data name="YouWantThisUpdate" xml:space="preserve">
+    <value>Do you want to run this update</value>
+  </data>
+  <data name="ChangeASerieFromTheTitle" xml:space="preserve">
+    <value>could not be changed.</value>
+  </data>
+  <data name="CouldNotDelete" xml:space="preserve">
+    <value>could not be deleted.</value>
+  </data>
+  <data name="DeleteDialogHeader" xml:space="preserve">
+    <value>Delete recodings</value>
+  </data>
+  <data name="ErrorUpdateSeries" xml:space="preserve">
+    <value>Error changing the series</value>
+  </data>
+  <data name="MessageFromServer" xml:space="preserve">
+    <value>The replied value of the server was:</value>
+  </data>
+  <data name="ServerLocksTheRecording" xml:space="preserve">
+    <value>The server replied that this recording is locked.</value>
+  </data>
+  <data name="ThisDeletes" xml:space="preserve">
+    <value>This deletes</value>
+  </data>
+  <data name="DeleteRecordingsQuestion" xml:space="preserve">
+    <value>Do you want to delete these recordings?</value>
+  </data>
+</root>

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="de-DE" target-language="en" original="DMSAPIWRAPPERDEMO/PROPERTIES/RESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6810.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="DMSAPIWRAPPERDEMO/PROPERTIES/RESOURCES.RESX" datatype="resx">
+        <trans-unit id="SettingsTitle" translate="yes" xml:space="preserve">
+          <source>Einstellungen für den DVBViewer Media Server vornehmen</source>
+          <target state="translated">Make settings for the DVBViewer Media server</target>
+        </trans-unit>
+        <trans-unit id="RecordingEditTitle" translate="yes" xml:space="preserve">
+          <source>Aufnahme bearbeiten</source>
+          <target state="translated">Edit Recording</target>
+        </trans-unit>
+        <trans-unit id="Hostname" translate="yes" xml:space="preserve">
+          <source>Hostname</source>
+          <target state="translated">Hostname</target>
+        </trans-unit>
+        <trans-unit id="Password" translate="yes" xml:space="preserve">
+          <source>Passwort</source>
+          <target state="translated" state-qualifier="tm-suggestion">Password</target>
+        </trans-unit>
+        <trans-unit id="Play" translate="yes" xml:space="preserve">
+          <source>Play</source>
+          <target state="translated">Play</target>
+        </trans-unit>
+        <trans-unit id="PlayCompleteList" translate="yes" xml:space="preserve">
+          <source>Play (komplette Liste)</source>
+          <target state="translated">Play (complete list)</target>
+        </trans-unit>
+        <trans-unit id="Port" translate="yes" xml:space="preserve">
+          <source>Port</source>
+          <target state="translated">Port</target>
+        </trans-unit>
+        <trans-unit id="Save" translate="yes" xml:space="preserve">
+          <source>Speichern</source>
+          <target state="translated" state-qualifier="tm-suggestion">Save</target>
+        </trans-unit>
+        <trans-unit id="SaveAndTest" translate="yes" xml:space="preserve">
+          <source>Speichern und Testen</source>
+          <target state="translated">Save and test</target>
+        </trans-unit>
+        <trans-unit id="Username" translate="yes" xml:space="preserve">
+          <source>Benutzername</source>
+          <target state="translated">Username</target>
+        </trans-unit>
+        <trans-unit id="Actions" translate="yes" xml:space="preserve">
+          <source>Aktionen</source>
+          <target state="translated">Actions</target>
+        </trans-unit>
+        <trans-unit id="Channel" translate="yes" xml:space="preserve">
+          <source>Sender</source>
+          <target state="translated">Channel</target>
+        </trans-unit>
+        <trans-unit id="ChooseDVBViewer" translate="yes" xml:space="preserve">
+          <source>DVBViewer auswählen</source>
+          <target state="translated">Select DVBViewer</target>
+        </trans-unit>
+        <trans-unit id="Delete" translate="yes" xml:space="preserve">
+          <source>Löschen</source>
+          <target state="translated">Delete</target>
+        </trans-unit>
+        <trans-unit id="Description" translate="yes" xml:space="preserve">
+          <source>Beschreibung</source>
+          <target state="translated">Description</target>
+        </trans-unit>
+        <trans-unit id="DescSearch" translate="yes" xml:space="preserve">
+          <source>In der Beschreibung suchen</source>
+          <target state="translated">Search in the description</target>
+        </trans-unit>
+        <trans-unit id="Duration" translate="yes" xml:space="preserve">
+          <source>Dauer</source>
+          <target state="translated">Duration</target>
+        </trans-unit>
+        <trans-unit id="DVBClients" translate="yes" xml:space="preserve">
+          <source>DVBViewer Clienten</source>
+          <target state="translated">DVBViewer Clients</target>
+        </trans-unit>
+        <trans-unit id="Edit" translate="yes" xml:space="preserve">
+          <source>Bearbeiten</source>
+          <target state="translated">Edit</target>
+        </trans-unit>
+        <trans-unit id="EditMode" translate="yes" xml:space="preserve">
+          <source>Edit Mode</source>
+          <target state="translated">Edit Mode</target>
+        </trans-unit>
+        <trans-unit id="Error" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <target state="translated">Error</target>
+        </trans-unit>
+        <trans-unit id="Filter" translate="yes" xml:space="preserve">
+          <source>Filter</source>
+          <target state="translated">Filter</target>
+        </trans-unit>
+        <trans-unit id="Info" translate="yes" xml:space="preserve">
+          <source>Info</source>
+          <target state="translated">Info</target>
+        </trans-unit>
+        <trans-unit id="LocalPlayer" translate="yes" xml:space="preserve">
+          <source>Lokaler Videoplayer</source>
+          <target state="translated">Local video player</target>
+        </trans-unit>
+        <trans-unit id="MoveToSeries" translate="yes" xml:space="preserve">
+          <source>Zur Serie verschieben</source>
+          <target state="translated">Move to the series</target>
+        </trans-unit>
+        <trans-unit id="NumberRecordings" translate="yes" xml:space="preserve">
+          <source>Anzahl der Aufnahmen</source>
+          <target state="translated">Number of recordings:</target>
+        </trans-unit>
+        <trans-unit id="Playback" translate="yes" xml:space="preserve">
+          <source>Wiedergabe</source>
+          <target state="translated">Playback</target>
+        </trans-unit>
+        <trans-unit id="PlayBackOtherOptions" translate="yes" xml:space="preserve">
+          <source>Wiedergabe andere Optionen</source>
+          <target state="translated">Playback other options</target>
+        </trans-unit>
+        <trans-unit id="PlayInDVBViewer" translate="yes" xml:space="preserve">
+          <source>Im DVBViewer abspielen</source>
+          <target state="translated">Play in DVBViewer</target>
+        </trans-unit>
+        <trans-unit id="Recordingdate" translate="yes" xml:space="preserve">
+          <source>Aufnahmedatum</source>
+          <target state="translated">Recorded</target>
+        </trans-unit>
+        <trans-unit id="Recordings" translate="yes" xml:space="preserve">
+          <source>Aufnahmen</source>
+          <target state="translated">Recordings</target>
+        </trans-unit>
+        <trans-unit id="Recording_s" translate="yes" xml:space="preserve">
+          <source>Aufnahme(n)</source>
+          <target state="translated">Recording(s)</target>
+        </trans-unit>
+        <trans-unit id="Search" translate="yes" xml:space="preserve">
+          <source>Suche</source>
+          <target state="translated">Search</target>
+        </trans-unit>
+        <trans-unit id="Series" translate="yes" xml:space="preserve">
+          <source>Serie</source>
+          <target state="translated">Series</target>
+        </trans-unit>
+        <trans-unit id="Serverstatus" translate="yes" xml:space="preserve">
+          <source>Serverstatus</source>
+          <target state="translated">Serverstatus</target>
+        </trans-unit>
+        <trans-unit id="Servertasks" translate="yes" xml:space="preserve">
+          <source>Serveraufgaben</source>
+          <target state="translated">Servertasks</target>
+        </trans-unit>
+        <trans-unit id="Settings" translate="yes" xml:space="preserve">
+          <source>Einstellungen</source>
+          <target state="translated">Settings</target>
+        </trans-unit>
+        <trans-unit id="SettingsPWUSER" translate="yes" xml:space="preserve">
+          <source>Hostname, Port, Benutzer und Passwort muss ausgefüllt werden.</source>
+          <target state="translated">Host name, port, user and password must be completed.</target>
+        </trans-unit>
+        <trans-unit id="Title" translate="yes" xml:space="preserve">
+          <source>Titel</source>
+          <target state="translated">Title</target>
+        </trans-unit>
+        <trans-unit id="TitleSearch" translate="yes" xml:space="preserve">
+          <source>Im Titel suchen</source>
+          <target state="translated">Search in the title</target>
+        </trans-unit>
+        <trans-unit id="Videos" translate="yes" xml:space="preserve">
+          <source>Videos</source>
+          <target state="translated">Videos</target>
+        </trans-unit>
+        <trans-unit id="ViewAllRecordings" translate="yes" xml:space="preserve">
+          <source>Alle Aufnahmen anzeigen</source>
+          <target state="translated">Show all recordings</target>
+        </trans-unit>
+        <trans-unit id="Warning" translate="yes" xml:space="preserve">
+          <source>Warnung</source>
+          <target state="translated">Warning</target>
+        </trans-unit>
+        <trans-unit id="FilterAdditionalToolTip" translate="yes" xml:space="preserve">
+          <source>Der Filter selektiert nicht zusätzlich</source>
+          <target state="translated">The filter does not select additionally</target>
+        </trans-unit>
+        <trans-unit id="EditModeToolTip" translate="yes" xml:space="preserve">
+          <source>Aktiviert den Edit Mode zum Bearbeiten der Aufnahmen. Zusätzlich werden die Details beim Anklicken einer Zeile deaktiviert. Es können dann auch mehrere Aufnahmen gleichzeit markiert werden.</source>
+          <target state="translated">Activates Edit Mode to edit recordings. In addition, the details are deactivated when clicking on a line. It is also possible to mark several recordings at the same time.</target>
+        </trans-unit>
+        <trans-unit id="Picture" translate="yes" xml:space="preserve">
+          <source>Bild</source>
+          <target state="translated">Picture</target>
+        </trans-unit>
+        <trans-unit id="Name" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Name</target>
+        </trans-unit>
+        <trans-unit id="ClickExpand" translate="yes" xml:space="preserve">
+          <source>Klicken zum Erweitern</source>
+          <target state="translated">Click to expand</target>
+        </trans-unit>
+        <trans-unit id="ConnectedWith" translate="yes" xml:space="preserve">
+          <source>verbunden mit</source>
+          <target state="translated">connected with</target>
+        </trans-unit>
+        <trans-unit id="Filename" translate="yes" xml:space="preserve">
+          <source>Dateiname</source>
+          <target state="translated">Filename</target>
+        </trans-unit>
+        <trans-unit id="NumberVideos" translate="yes" xml:space="preserve">
+          <source>Anzahl Videos</source>
+          <target state="translated">Number of videos:</target>
+        </trans-unit>
+        <trans-unit id="Path" translate="yes" xml:space="preserve">
+          <source>Pfad</source>
+          <target state="translated">Path</target>
+        </trans-unit>
+        <trans-unit id="PathSearch" translate="yes" xml:space="preserve">
+          <source>Im Pfad suchen</source>
+          <target state="translated">Search in the path</target>
+        </trans-unit>
+        <trans-unit id="Size" translate="yes" xml:space="preserve">
+          <source>Größe</source>
+          <target state="translated">Size</target>
+        </trans-unit>
+        <trans-unit id="ViewAllVideos" translate="yes" xml:space="preserve">
+          <source>Alle Videos anzeigen</source>
+          <target state="translated">Show all videos</target>
+        </trans-unit>
+        <trans-unit id="UsedSpace" translate="yes" xml:space="preserve">
+          <source>Verwendeter Speicherplatz:</source>
+          <target state="translated">Used space:</target>
+        </trans-unit>
+        <trans-unit id="Details" translate="yes" xml:space="preserve">
+          <source>Details</source>
+          <target state="translated">Details</target>
+        </trans-unit>
+        <trans-unit id="FileInfo" translate="yes" xml:space="preserve">
+          <source>Dateininfo</source>
+          <target state="translated">File Info</target>
+        </trans-unit>
+        <trans-unit id="InfoFile" translate="yes" xml:space="preserve">
+          <source>Info Datei</source>
+          <target state="translated">Info File</target>
+        </trans-unit>
+        <trans-unit id="SubTitle" translate="yes" xml:space="preserve">
+          <source>Untertitel (Info)</source>
+          <target state="translated">Subtitel (Info)</target>
+        </trans-unit>
+        <trans-unit id="Update" translate="yes" xml:space="preserve">
+          <source>Aktualisieren</source>
+          <target state="translated">Update</target>
+        </trans-unit>
+        <trans-unit id="Cancel" translate="yes" xml:space="preserve">
+          <source>Abbrechen</source>
+          <target state="translated">Cancel</target>
+        </trans-unit>
+        <trans-unit id="ChangesSeriesFromNumberToName" translate="yes" xml:space="preserve">
+          <source>Aufnahmen zur Serie</source>
+          <target state="translated">recordings to the series</target>
+        </trans-unit>
+        <trans-unit id="ChangesSeriesNextNumber" translate="yes" xml:space="preserve">
+          <source>Dies ändert die Serie von</source>
+          <target state="translated">This changes the series of</target>
+        </trans-unit>
+        <trans-unit id="CheckDialogHeader" translate="yes" xml:space="preserve">
+          <source>Sicherheitsabfrage</source>
+          <target state="translated">Security Check</target>
+        </trans-unit>
+        <trans-unit id="UpdateFailedWithCode" translate="yes" xml:space="preserve">
+          <source>Änderung fehlgeschlagen, der Server antwortete mit der Meldung:</source>
+          <target state="translated">Update failed, the server replied with the message:</target>
+        </trans-unit>
+        <trans-unit id="UpdateSucceed" translate="yes" xml:space="preserve">
+          <source>Die Änderung war erfolgreich</source>
+          <target state="translated">The update was successfull.</target>
+        </trans-unit>
+        <trans-unit id="YouWantThisUpdate" translate="yes" xml:space="preserve">
+          <source>Möchtest du diese Änderung durchführen?</source>
+          <target state="translated">Do you want to run this update</target>
+        </trans-unit>
+        <trans-unit id="ChangeASerieFromTheTitle" translate="yes" xml:space="preserve">
+          <source>konnte nicht geändert werden.</source>
+          <target state="translated">could not be changed.</target>
+        </trans-unit>
+        <trans-unit id="CouldNotDelete" translate="yes" xml:space="preserve">
+          <source>konnte nicht gelöscht werden</source>
+          <target state="translated">could not be deleted.</target>
+        </trans-unit>
+        <trans-unit id="DeleteDialogHeader" translate="yes" xml:space="preserve">
+          <source>Löschen von Aufnahmen</source>
+          <target state="translated">Delete recodings</target>
+        </trans-unit>
+        <trans-unit id="ErrorUpdateSeries" translate="yes" xml:space="preserve">
+          <source>Fehler beim Ändern der Serie</source>
+          <target state="translated">Error changing the series</target>
+        </trans-unit>
+        <trans-unit id="MessageFromServer" translate="yes" xml:space="preserve">
+          <source>Der Rückgabewert des Servers war:</source>
+          <target state="translated">The replied value of the server was:</target>
+        </trans-unit>
+        <trans-unit id="ServerLocksTheRecording" translate="yes" xml:space="preserve">
+          <source>Der Server gab zurück, dass diese Aufnahme gerade verwendet wird.</source>
+          <target state="translated">The server replied that this recording is locked.</target>
+        </trans-unit>
+        <trans-unit id="ThisDeletes" translate="yes" xml:space="preserve">
+          <source>Dies löscht</source>
+          <target state="translated">This deletes</target>
+        </trans-unit>
+        <trans-unit id="DeleteRecordingsQuestion" translate="yes" xml:space="preserve">
+          <source>Möchtest du diese Aufnahmen löschen?</source>
+          <target state="translated">Do you want to delete these recordings?</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
