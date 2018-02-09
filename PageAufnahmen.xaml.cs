@@ -94,11 +94,10 @@ namespace DMSApiWrapperDemo
         {
             get
             {
-                if (RecordingItem != null && Recordings != null)
+                if (RecordingItem != null && Recordings != null && Recordings.ImageURL != null && RecordingItem.Image != null)
                 {
                     return Recordings.ImageURL + RecordingItem.Image;
                 }
-
                 return null;
             }
         }

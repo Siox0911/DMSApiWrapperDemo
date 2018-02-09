@@ -9,7 +9,7 @@
       x:Name="page" x:Class="DMSApiWrapperDemo.PageAufnahmen"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="900"
-      Title="PageAufnahmen" Language="de-DE">
+      Title="PageAufnahmen">
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <LinearGradientBrush x:Key="Flat3DBorderBrush" StartPoint="0.499,0" EndPoint="0.501,1">
@@ -327,7 +327,7 @@
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="{x:Static properties:Resources.Duration}" Binding="{Binding Duration2}" IsReadOnly="True" Width="Auto"/>
-                <DataGridTextColumn Header="{x:Static properties:Resources.Recordingdate}" Binding="{Binding RecDate}" IsReadOnly="True" Width="Auto" SortDirection="Descending"/>
+                <DataGridTextColumn Header="{x:Static properties:Resources.Recordingdate}" Binding="{Binding RecDate, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" IsReadOnly="True" Width="Auto" SortDirection="Descending"/>
                 <DataGridTextColumn Header="{x:Static properties:Resources.Channel}" Binding="{Binding Channel}" IsReadOnly="True" Width="Auto"/>
                 <DataGridTextColumn Header="{x:Static properties:Resources.Info}" Binding="{Binding Info}" IsReadOnly="True" Width="200">
                     <DataGridTextColumn.CellStyle>

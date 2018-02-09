@@ -25,21 +25,26 @@ namespace DMSApiWrapperDemo
 #if !DEBUG
             this.DispatcherUnhandledException += this.OnDispatcherUnhandledException;
 #endif
-
-            if (Debugger.IsAttached && cultureOverride != null)
+            if (Thread.CurrentThread.CurrentUICulture.ToString().IndexOf("de-DE", StringComparison.CurrentCultureIgnoreCase) == -1 && cultureOverride != null)
             {
                 Thread.CurrentThread.CurrentUICulture = cultureOverride;
                 Thread.CurrentThread.CurrentCulture = cultureOverride;
             }
+
+            //if (Debugger.IsAttached && cultureOverride != null)
+            //{
+            //    Thread.CurrentThread.CurrentUICulture = cultureOverride;
+            //    Thread.CurrentThread.CurrentCulture = cultureOverride;
+            //}
             base.OnStartup(e);
         }
 
         private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             if (e.Exception.InnerException != null)
-                MessageBox.Show(e.Exception.InnerException + Environment.NewLine, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(e.Exception.InnerException + Environment.NewLine, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             else
-                MessageBox.Show(e.Exception + Environment.NewLine, "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(e.Exception + Environment.NewLine, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
