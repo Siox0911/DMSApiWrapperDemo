@@ -87,10 +87,10 @@ namespace DMSApiWrapperDemo
         {
             serverApi = DVBViewerServerApi.GetCurrentInstance();
             Series = await RecordingSeries.GetSeriesAsync();
-            SeriesValue = recordingItem.Series.Name;
+            SeriesValue = recordingItem.Series?.Name;
             Titel = recordingItem.Title;
             Info = recordingItem.Info ?? "";
-            Channel = recordingItem.Channel.Name;
+            Channel = recordingItem.Channel?.Name;
             Description = recordingItem.Description;
         }
 
