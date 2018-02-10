@@ -83,10 +83,10 @@ namespace DMSApiWrapperDemo
             return aufnahmeEdit;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             serverApi = DVBViewerServerApi.GetCurrentInstance();
-            Series = RecordingSeries.GetSeries();
+            Series = await RecordingSeries.GetSeriesAsync();
             SeriesValue = recordingItem.Series.Name;
             Titel = recordingItem.Title;
             Info = recordingItem.Info ?? "";
@@ -112,15 +112,15 @@ namespace DMSApiWrapperDemo
             recordingItem.Info = Info;
             recordingItem.Description = Description;
             //Update dem Server übermitteln
-            var res = await recordingItem.Update().ConfigureAwait(false);
+            var res = await recordingItem.UpdateAsync().ConfigureAwait(false);
             //Update auswerten
             if(res == System.Net.HttpStatusCode.OK)
             {
-                MessageBox.Show("Die Änderung war erfolgreich");
+                MessageBox.Show(Properties.Resources.UpdateSucceed);
             }
             else
             {
-                MessageBox.Show($"Änderung fehlgeschlagen, der Server antwortete mit der Meldung: {res}");
+                MessageBox.Show($"{Properties.Resources.UpdateFailedWithCode} {res}");
             }
         }
 

@@ -9,7 +9,7 @@
       x:Name="page" x:Class="DMSApiWrapperDemo.PageAufnahmen"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="900"
-      Title="PageAufnahmen">
+      Title="PageAufnahmen" Loaded="Page_Loaded">
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <LinearGradientBrush x:Key="Flat3DBorderBrush" StartPoint="0.499,0" EndPoint="0.501,1">

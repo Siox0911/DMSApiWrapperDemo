@@ -144,22 +144,6 @@ namespace DMSApiWrapperDemo
             //Server Api anzapfen
             serverApi = DVBViewerServerApi.GetCurrentInstance();
 
-            //Alle Aufnahmen holen
-            //Aufnahmen sortieren Absteigend nach Datum
-            Recordings = SortRecordings(serverApi.Recordings);
-            //oder so abrufen
-            //Recordings = RecordingList.GetRecordings();
-
-            //Clients abholen
-            Clients = serverApi.DVBViewerClients.Items;
-            //Wenn welche vorhanden sind, den ersten nehmen
-            if (Clients.Count > 0)
-                Client = Clients[0];
-
-            //Serien abrufen
-            Series = RecordingSeries.GetSeries();
-            //Sender abfrufen
-            Channels = RecordingChannel.GetChannels();
         }
 
         internal static PageAufnahmen GetInstance()
@@ -167,6 +151,25 @@ namespace DMSApiWrapperDemo
             return pageAufnahmen;
         }
 
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Alle Aufnahmen holen
+            //Aufnahmen sortieren Absteigend nach Datum
+            Recordings = SortRecordings(await serverApi.RecordingsAsync);
+            //oder so abrufen
+            //Recordings = RecordingList.GetRecordings();
+
+            //Clients abholen
+            Clients = (await serverApi.DVBViewerClientsAsync).Items;
+            //Wenn welche vorhanden sind, den ersten nehmen
+            if (Clients.Count > 0)
+                Client = Clients[0];
+
+            //Serien abrufen
+            Series = await RecordingSeries.GetSeriesAsync();
+            //Sender abfrufen
+            Channels = await RecordingChannel.GetChannelsAsync();
+        }
         /// <summary>
         /// Ereignis auslösen damit die UI Oberfläche aktualisiert wird.
         /// </summary>
@@ -264,51 +267,53 @@ namespace DMSApiWrapperDemo
             }
         }
 
-        private void BtnSearchTitle_Click(object sender, RoutedEventArgs e)
+        private async void BtnSearchTitle_Click(object sender, RoutedEventArgs e)
         {
             //Suche nach Titel
             if (!string.IsNullOrEmpty(SearchTitle))
             {
-                Recordings = SortRecordings(RecordingList.GetRecordings(searchTitle));
+                Recordings = SortRecordings(await RecordingList.GetRecordingsAsync(searchTitle));
             }
         }
 
-        private void BtnSearchDesc_Click(object sender, RoutedEventArgs e)
+        private async void BtnSearchDesc_Click(object sender, RoutedEventArgs e)
         {
             //Suche in der Beschreibung
             if (!string.IsNullOrEmpty(SearchDesc))
             {
-                Recordings = SortRecordings(RecordingList.GetRecordingsByDesc(searchDesc));
+                Recordings = SortRecordings(await RecordingList.GetRecordingsByDescAsync(searchDesc));
             }
         }
 
-        private void BtnAlleAufnahmen_Click(object sender, RoutedEventArgs e)
+        private async void BtnAlleAufnahmen_Click(object sender, RoutedEventArgs e)
         {
             //ALle Aufnahmen anzeigen
             if (Recordings != null)
             {
-                Recordings = SortRecordings(serverApi.Recordings);
-                Series = RecordingSeries.GetSeries();
+                Recordings = SortRecordings(await serverApi.RecordingsAsync);
+                Series = await RecordingSeries.GetSeriesAsync().ConfigureAwait(false);
             }
         }
 
-        private void CbSeries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void CbSeries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Aufnahmen einer Serie anzeigen
             if (recordings != null)
             {
-                Recordings.Items = (from f in serverApi.Recordings.Items where f.Series?.Name.Equals(Serie?.Name) == true select f).ToList();
+                var recs = await serverApi.RecordingsAsync;
+                Recordings.Items = (from f in recs.Items where f.Series?.Name.Equals(Serie?.Name) == true select f).ToList();
                 Recordings = SortRecordings(Recordings);
                 Notify("Recordings");
             }
         }
 
-        private void CbSender_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void CbSender_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Aufnahmen eines Senders anzeigen
             if (recordings != null)
             {
-                Recordings.Items = (from f in serverApi.Recordings.Items where f.Channel?.Name.Equals(channel?.Name) == true select f).ToList();
+                var recs = await serverApi.RecordingsAsync;
+                Recordings.Items = (from f in recs.Items where f.Channel?.Name.Equals(channel?.Name) == true select f).ToList();
                 Recordings = SortRecordings(Recordings);
                 Notify("Recordings");
             }
@@ -339,7 +344,7 @@ namespace DMSApiWrapperDemo
                         }
 
                         //Update durchführen
-                        var res = await item.Update().ConfigureAwait(false);
+                        var res = await item.UpdateAsync().ConfigureAwait(false);
 
                         //Sollte bei einer Aufnahme etwas schieflaufen
                         if (res != System.Net.HttpStatusCode.OK)
@@ -348,9 +353,9 @@ namespace DMSApiWrapperDemo
                             MessageBox.Show($"{item.Title} {Properties.Resources.ChangeASerieFromTheTitle}\n{Properties.Resources.MessageFromServer} {res.ToString()}", Properties.Resources.ErrorUpdateSeries, MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
-                    Series = RecordingSeries.GetSeries();
+                    Series = await RecordingSeries.GetSeriesAsync();
                     //Die Sortierung wird nicht übernommen
-                    Recordings = SortRecordings(serverApi.Recordings);
+                    Recordings = SortRecordings(await serverApi.RecordingsAsync);
                 }
             }
         }
@@ -366,7 +371,7 @@ namespace DMSApiWrapperDemo
                     string message = "";
                     foreach (var item in RecordingItems)
                     {
-                        var res = await item.Delete().ConfigureAwait(false);
+                        var res = await item.DeleteAsync().ConfigureAwait(false);
                         if (res.ToString().Equals("423"))
                         {
                             message += $"\n\"{item.Title}\" {Properties.Resources.CouldNotDelete}. {Properties.Resources.ServerLocksTheRecording}";
@@ -377,9 +382,9 @@ namespace DMSApiWrapperDemo
                     {
                         MessageBox.Show(message, Properties.Resources.DeleteDialogHeader, MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-                    Series = RecordingSeries.GetSeries();
+                    Series = await RecordingSeries.GetSeriesAsync();
                     //Die Sortierung wird nicht übernommen
-                    Recordings = SortRecordings(serverApi.Recordings);
+                    Recordings = SortRecordings(await serverApi.RecordingsAsync);
                 }
             }
         }
@@ -458,5 +463,7 @@ namespace DMSApiWrapperDemo
                 editWindow.ShowDialog();
             }
         }
+
+ 
     }
 }

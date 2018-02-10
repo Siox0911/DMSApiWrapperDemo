@@ -7,7 +7,7 @@
       xmlns:properties="clr-namespace:DMSApiWrapperDemo.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="900"
-      Title="PageVideos" Language="de-DE">
+      Title="PageVideos" Loaded="Page_Loaded">
     <Page.Resources>
         <LinearGradientBrush x:Key="Flat3DBorderBrush" StartPoint="0.499,0" EndPoint="0.501,1">
             <GradientStop Color="#FFF" Offset="0"/>
@@ -90,9 +90,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Text="{x:Static properties:Resources.NumberVideos}" Margin="5"/>
-            <TextBlock Grid.Column="1" Text="{Binding AnzahlVideos, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <TextBlock Grid.Column="1" Text="{Binding NumberOfVideos, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
             <TextBlock Grid.Row="1" Text="{x:Static properties:Resources.UsedSpace}" Margin="5"/>
-            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding GroesseVideos, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding SizeOfVideos, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
         </Grid>
 
         <!-- Grid Titel und Beschreibungssuche -->

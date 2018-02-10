@@ -22,11 +22,11 @@ namespace DMSApiWrapperDemo
         //Der ausgewählte DVBViewer Client
         private DVBViewerClient client;
         //Anzahl der Videos
-        private int anzahlVideos;
+        private int numberOfVideos;
         //Long zum Berechnen der Videogröße gesamt
         private long fileSizeVideos;
         //String zum Anzeigen der Videos gesamt
-        private string groesseVideos;
+        private string sizeOfVideos;
         //Text der Titelsuche
         private string searchTitle;
         //Text der Pfadsuche
@@ -62,7 +62,7 @@ namespace DMSApiWrapperDemo
         /// <summary>
         /// Die Anzahl der Videos
         /// </summary>
-        public int AnzahlVideos { get => anzahlVideos; set { anzahlVideos = value; Notify(); } }
+        public int NumberOfVideos { get => numberOfVideos; set { numberOfVideos = value; Notify(); } }
         /// <summary>
         /// Der Text der Titelsuche
         /// </summary>
@@ -82,7 +82,7 @@ namespace DMSApiWrapperDemo
         /// <summary>
         /// Die Gesamtgröße der Videoliste
         /// </summary>
-        public string GroesseVideos { get => groesseVideos; set { groesseVideos = value; Notify(); } }
+        public string SizeOfVideos { get => sizeOfVideos; set { sizeOfVideos = value; Notify(); } }
 
         public PageVideos()
         {
@@ -92,20 +92,25 @@ namespace DMSApiWrapperDemo
             DataContext = this;
             //Server Api anzapfen
             serverApi = DVBViewerServerApi.GetCurrentInstance();
-            //Clients abholen
-            Clients = serverApi.DVBViewerClients;
-            //Wenn welche vorhanden sind, den ersten nehmen
-            if (Clients.Items?.Count > 0)
-                Client = Clients.Items[0];
-
-            //Alle Videos abrufen
-            Videos = serverApi.VideoFileList;
         }
 
         internal static PageVideos GetInstance()
         {
             return pageVideos;
         }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Clients abholen
+            Clients = await serverApi.DVBViewerClientsAsync;
+            //Wenn welche vorhanden sind, den ersten nehmen
+            if (Clients.Items?.Count > 0)
+                Client = Clients.Items[0];
+
+            //Alle Videos abrufen
+            Videos = await serverApi.VideoFileListAsync;
+        }
+
         /// <summary>
         /// Ereignis auslösen damit die UI Oberfläche aktualisiert wird.
         /// </summary>
@@ -116,24 +121,24 @@ namespace DMSApiWrapperDemo
         }
 
 
-        private void BtnSearchPath_Click(object sender, RoutedEventArgs e)
+        private async void BtnSearchPath_Click(object sender, RoutedEventArgs e)
         {
             //Im PFad suchen
             if (!string.IsNullOrEmpty(SearchPath))
-                Videos = VideoFileList.GetVideoFileListByPath(SearchPath);
+                Videos = await VideoFileList.GetVideoFileListByPathAsync(SearchPath).ConfigureAwait(false);
         }
 
-        private void BtnAlleVideos_Click(object sender, RoutedEventArgs e)
+        private async void BtnAlleVideos_Click(object sender, RoutedEventArgs e)
         {
             //Alle Videos vom Server holen
-            Videos = serverApi.VideoFileList;
+            Videos = await serverApi.VideoFileListAsync;
         }
 
-        private void BtnSearchTitle_Click(object sender, RoutedEventArgs e)
+        private async void BtnSearchTitle_Click(object sender, RoutedEventArgs e)
         {
             //Titelsuche
             if (string.IsNullOrEmpty(SearchTitle))
-                Videos = VideoFileList.GetVideoFileList(SearchTitle);
+                Videos = await VideoFileList.GetVideoFileListAsync(SearchTitle).ConfigureAwait(false);
         }
 
         private void BtnVideoplayer_Click(object sender, RoutedEventArgs e)
@@ -166,7 +171,7 @@ namespace DMSApiWrapperDemo
             if (Videos != null)
             {
                 //Videoanzahl
-                AnzahlVideos = Videos.Items.Count;
+                NumberOfVideos = Videos.Items.Count;
 
                 //Dateigröße gesamt
                 fileSizeVideos = 0;
@@ -174,7 +179,7 @@ namespace DMSApiWrapperDemo
                 {
                     fileSizeVideos += item.FileSize;
                 }
-                GroesseVideos = FileSize.GetFileSize(fileSizeVideos).ToString();
+                SizeOfVideos = FileSize.GetFileSize(fileSizeVideos).ToString();
 
                 //Die Sortierung übernehmen
                 Videos.Items = dataGrid.Items.Cast<VideoFileItem>().ToList();
@@ -185,5 +190,6 @@ namespace DMSApiWrapperDemo
         {
             //Nicht genutzt
         }
+
     }
 }

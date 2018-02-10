@@ -27,7 +27,7 @@ namespace DMSApiWrapperDemo
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //TODO: Es gibt noch kein Item für die Anwendung
             //Icon = Properties.Resources.Werkbuch464x64.ToImageSource();
@@ -45,8 +45,9 @@ namespace DMSApiWrapperDemo
             //Wenn etwas bei der Instanziierung schief geht, dann gehe direkt zur Einstellungsseite
             try
             {
+                var version = await dvbApi.ServerVersionAsync;
                 Title = $"DMSApiWrapperDemo {Assembly.GetExecutingAssembly().GetName().Version}";
-                Title = $"{Title} - {Properties.Resources.ConnectedWith} {dvbApi.ServerVersion.Version}";
+                Title = $"{Title} - {Properties.Resources.ConnectedWith} {version.Version}";
                 error = false;
             }
             catch (Exception)

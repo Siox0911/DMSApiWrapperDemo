@@ -72,7 +72,7 @@ namespace DMSApiWrapperDemo
             return pageEinstellungen;
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private async void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(Hostname) || Port == 0 || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(pwBox.Password))
             {
@@ -111,7 +111,7 @@ namespace DMSApiWrapperDemo
                 //Bei Fehler Nachricht anzeigen
                 try
                 {
-                    TestText = dvbApi.ServerVersion.Version;
+                    TestText = (await dvbApi.ServerVersionAsync).Version;
                 }
                 catch (Exception ex)
                 {
