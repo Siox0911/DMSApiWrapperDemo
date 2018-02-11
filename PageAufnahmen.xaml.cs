@@ -130,6 +130,8 @@ namespace DMSApiWrapperDemo
         /// </summary>
         public List<RecordingItem> RecordingItems { get => recordingItems; set { recordingItems = value; Notify(); } }
 
+        //public bool SmoothScrolling { get => !PageEinstellungen.GetInstance().SmoothScrolling ; set { PageEinstellungen.GetInstance().SmoothScrolling = !value; Notify(); } }
+
 
         /// <summary>
         /// Erzeugt eine Instanz dieser Seite
@@ -253,8 +255,15 @@ namespace DMSApiWrapperDemo
         {
             if (RecordingItem != null)
             {
-                //Eine m3u Datei von der Aufnahme erzeugen und dem System übergeben.
-                Process.Start(RecordingItem.CreateM3UFile());
+                try
+                {
+                    //Eine m3u Datei von der Aufnahme erzeugen und dem System übergeben.
+                    Process.Start(RecordingItem.CreateM3UFile());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

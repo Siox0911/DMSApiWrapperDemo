@@ -253,7 +253,7 @@
     <value>Einstellungen</value>
   </data>
   <data name="SettingsPWUSER" xml:space="preserve">
-    <value>Hostname, Port, Benutzer und Passwort muss ausgefüllt werden.</value>
+    <value>Benutzer und Passwort muss ausgefüllt werden.</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Einstellungen für den DVBViewer Media Server vornehmen</value>
@@ -344,5 +344,32 @@
   </data>
   <data name="YouWantThisUpdate" xml:space="preserve">
     <value>Möchtest du diese Änderung durchführen?</value>
+  </data>
+  <data name="BypassLocalhostDescription" xml:space="preserve">
+    <value>Statt Playlisten mit UPnP Streams zu erstellen, wird direkt auf die Mediendatei verwiesen. Dies funktioniert nicht mit der Option  Play (komplette Liste). Wenn der DMS nicht auf dem lokalen PC läuft, kann dies Fehler erzeugen, wenn nicht genügend Rechte vorhanden sind.</value>
+  </data>
+  <data name="BypassLocalhostTitel" xml:space="preserve">
+    <value>Umgehe Playlistenerstellung</value>
+  </data>
+  <data name="Credentials" xml:space="preserve">
+    <value>Anmeldeinformationen</value>
+  </data>
+  <data name="OtherOptions" xml:space="preserve">
+    <value>Andere Einstellungen</value>
+  </data>
+  <data name="SettingsHostNamePort" xml:space="preserve">
+    <value>Hostname und Port müssen gesetzt werden.</value>
+  </data>
+  <data name="TrustedDevice" xml:space="preserve">
+    <value>Dieses Gerät ist im DMS ein vertrauenswürdiges Gerät</value>
+  </data>
+  <data name="Experimental" xml:space="preserve">
+    <value>Experimentell</value>
+  </data>
+  <data name="SmoothScrollingDescription" xml:space="preserve">
+    <value>Führt zu einem weichem Scrollen in den Medienlisten. Dies führt aber dazu das Windows diese Liste komplett auf einmal rendert. Dies verbraucht mehr Arbeitspeicher und kostet viel CPU Leistung. Zusätzlich dauert das Anzeigen der Listen sehr viel länger.</value>
+  </data>
+  <data name="SmoothScrollingTitle" xml:space="preserve">
+    <value>weiches scrollen in den Medienlisten</value>
   </data>
 </root>

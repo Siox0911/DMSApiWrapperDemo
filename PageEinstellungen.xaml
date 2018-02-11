@@ -24,27 +24,68 @@
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Grid.ColumnSpan="3">
             <TextBlock Text="{x:Static properties:Resources.SettingsTitle}" FontSize="24" TextWrapping="Wrap"/>
         </Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Row="1">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Grid.Row="1" Margin="5">
             <Label Content="{x:Static properties:Resources.Hostname}"/>
             <TextBox Text="{Binding Hostname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5"/>
             <Label Content="{x:Static properties:Resources.Port}"/>
             <TextBox Text="{Binding Port, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5"/>
-            <Label Content="{x:Static properties:Resources.Username}"/>
-            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5"/>
-            <Label Content="{x:Static properties:Resources.Password}"/>
-            <PasswordBox x:Name="pwBox" Padding="5"/>
+            <GroupBox Header="{x:Static properties:Resources.Credentials}" Margin="0,5">
+                <StackPanel>
+                    <CheckBox x:Name="cbTrustedDevice" IsChecked="{Binding TrustedDevice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Padding="5" Margin="0,5,5,5" VerticalContentAlignment="Center" Width="300">
+                        <TextBlock Text="{x:Static properties:Resources.TrustedDevice}" TextWrapping="Wrap"/>
+                    </CheckBox>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbTrustedDevice, Path=IsChecked}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Label Content="{x:Static properties:Resources.Username}"/>
+                        <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5"/>
+                        <Label Content="{x:Static properties:Resources.Password}"/>
+                        <PasswordBox x:Name="pwBox" Padding="5"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
             <Label Content="{x:Static properties:Resources.SaveAndTest}"/>
             <Button x:Name="btnSave" Content="{x:Static properties:Resources.Save}" Click="BtnSave_Click" Padding="5"/>
             <TextBlock/>
             <TextBlock Text="{Binding TestText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Width="250" Padding="5"/>
         </StackPanel>
+        <GroupBox Header="{x:Static properties:Resources.OtherOptions}" Grid.Row="1" Grid.Column="1" Margin="5" Height="Auto" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <CheckBox IsChecked="{Binding BypassLocalhost}" VerticalContentAlignment="Center" Content="{x:Static properties:Resources.BypassLocalhostTitel}" Padding="5">
+                    <CheckBox.ToolTip>
+                        <ToolTip Width="450">
+                            <TextBlock Text="{x:Static properties:Resources.BypassLocalhostDescription}" TextWrapping="Wrap"/>
+                        </ToolTip>
+                    </CheckBox.ToolTip>
+                </CheckBox>
+                <!--<GroupBox Header="{x:Static properties:Resources.Experimental}">
+                    <CheckBox IsChecked="{Binding SmoothScrolling}" VerticalContentAlignment="Center" Content="{x:Static properties:Resources.SmoothScrollingTitle}" Padding="5">
+                        <CheckBox.ToolTip>
+                            <ToolTip Width="450">
+                                <TextBlock Text="{x:Static properties:Resources.SmoothScrollingDescription}" TextWrapping="Wrap"/>
+                            </ToolTip>
+                        </CheckBox.ToolTip>
+                    </CheckBox>
+                </GroupBox>-->
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>

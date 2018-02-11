@@ -8,9 +8,10 @@
       xmlns:Model="clr-namespace:DVBViewerServerApiWrapper.Model;assembly=DVBViewerServerApiWrapper" 
       x:Name="page" x:Class="DMSApiWrapperDemo.PageAufnahmen"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="900"
+      d:DesignHeight="500" d:DesignWidth="1000"
       Title="PageAufnahmen" Loaded="Page_Loaded">
     <Page.Resources>
+        <AlternationConverter x:Key="AlternationConverter"/>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <LinearGradientBrush x:Key="Flat3DBorderBrush" StartPoint="0.499,0" EndPoint="0.501,1">
             <GradientStop Color="#FFF" Offset="0"/>
@@ -199,7 +200,7 @@
         </GroupBox>
 
         <!-- DataGrid mit den Daten -->
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Recordings.Items, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding RecordingItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5" AutoGenerateColumns="False" IsReadOnly="True" AlternationCount="1" Margin="5" Background="#7FF0F0F0" VerticalGridLinesBrush="#105895" LayoutUpdated="DataGrid_LayoutUpdated" MouseDown="DataGrid_MouseDown" AlternatingRowBackground="{DynamicResource AlternateBrush}" SelectionChanged="DataGrid_SelectionChanged" Sorting="DataGrid_Sorting" PreviewMouseDoubleClick="DataGrid_PreviewMouseDoubleClick">
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Recordings.Items, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding RecordingItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5" AutoGenerateColumns="False" IsReadOnly="True" AlternationCount="1" Margin="5" Background="#7FF0F0F0" VerticalGridLinesBrush="#105895" LayoutUpdated="DataGrid_LayoutUpdated" MouseDown="DataGrid_MouseDown" AlternatingRowBackground="{DynamicResource AlternateBrush}" SelectionChanged="DataGrid_SelectionChanged" Sorting="DataGrid_Sorting" PreviewMouseDoubleClick="DataGrid_PreviewMouseDoubleClick" ScrollViewer.CanContentScroll="True" CanUserReorderColumns="False">
             <!-- START Animation Teil 1 RowStyle-->
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
@@ -287,8 +288,8 @@
                             </StackPanel>
                         </Grid>
                         <!-- Hier wird die lange Description angezeigt -->
-                        <Border Grid.Row="1" MaxWidth="890" Background="#4C105895" Margin="5" Padding="5" CornerRadius="24" BorderBrush="{StaticResource Flat3DBorderBrush}" BorderThickness="1">
-                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" TextAlignment="Center" TextTrimming="CharacterEllipsis" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
+                        <Border Grid.Row="1" MaxWidth="890" Background="#4C2385D8" Margin="5" Padding="5" CornerRadius="24" BorderBrush="{StaticResource Flat3DBorderBrush}" BorderThickness="1">
+                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" TextAlignment="Left" TextTrimming="CharacterEllipsis" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
                         </Border>
                     </Grid>
                 </DataTemplate>

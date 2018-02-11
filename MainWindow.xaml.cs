@@ -33,13 +33,17 @@ namespace DMSApiWrapperDemo
             //Icon = Properties.Resources.Werkbuch464x64.ToImageSource();
             var settings = PageEinstellungen.GetInstance() ?? new PageEinstellungen();
 
+            ToolTipService.ShowDurationProperty.OverrideMetadata(typeof(DependencyObject), new FrameworkPropertyMetadata(25000));
+
             //Api instanziieren
             dvbApi = new DVBViewerServerApi
             {
                 Hostname = settings.Hostname,
                 Port = settings.Port,
                 User = settings.Username,
-                Password = settings.Password
+                Password = settings.Password,
+                TrustedDevice = settings.TrustedDevice,
+                BypassLocalhost = settings.BypassLocalhost
             };
 
             //Wenn etwas bei der Instanziierung schief geht, dann gehe direkt zur Einstellungsseite

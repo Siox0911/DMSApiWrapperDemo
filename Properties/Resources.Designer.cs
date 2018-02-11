@@ -70,6 +70,24 @@ namespace DMSApiWrapperDemo.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Statt Playlisten mit UPnP Streams zu erstellen, wird direkt auf die Mediendatei verwiesen. Dies funktioniert nicht mit der Option  Play (komplette Liste). Wenn der DMS nicht auf dem lokalen PC läuft, kann dies Fehler erzeugen, wenn nicht genügend Rechte vorhanden sind. ähnelt.
+        /// </summary>
+        public static string BypassLocalhostDescription {
+            get {
+                return ResourceManager.GetString("BypassLocalhostDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Umgehe Playlistenerstellung ähnelt.
+        /// </summary>
+        public static string BypassLocalhostTitel {
+            get {
+                return ResourceManager.GetString("BypassLocalhostTitel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Abbrechen ähnelt.
         /// </summary>
         public static string Cancel {
@@ -156,6 +174,15 @@ namespace DMSApiWrapperDemo.Properties {
         public static string CouldNotDelete {
             get {
                 return ResourceManager.GetString("CouldNotDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Anmeldeinformationen ähnelt.
+        /// </summary>
+        public static string Credentials {
+            get {
+                return ResourceManager.GetString("Credentials", resourceCulture);
             }
         }
         
@@ -277,6 +304,15 @@ namespace DMSApiWrapperDemo.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Experimentell ähnelt.
+        /// </summary>
+        public static string Experimental {
+            get {
+                return ResourceManager.GetString("Experimental", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Dateininfo ähnelt.
         /// </summary>
         public static string FileInfo {
@@ -390,6 +426,15 @@ namespace DMSApiWrapperDemo.Properties {
         public static string NumberVideos {
             get {
                 return ResourceManager.GetString("NumberVideos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Andere Einstellungen ähnelt.
+        /// </summary>
+        public static string OtherOptions {
+            get {
+                return ResourceManager.GetString("OtherOptions", resourceCulture);
             }
         }
         
@@ -592,7 +637,16 @@ namespace DMSApiWrapperDemo.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Hostname, Port, Benutzer und Passwort muss ausgefüllt werden. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Hostname und Port müssen gesetzt werden. ähnelt.
+        /// </summary>
+        public static string SettingsHostNamePort {
+            get {
+                return ResourceManager.GetString("SettingsHostNamePort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Benutzer und Passwort muss ausgefüllt werden. ähnelt.
         /// </summary>
         public static string SettingsPWUSER {
             get {
@@ -615,6 +669,24 @@ namespace DMSApiWrapperDemo.Properties {
         public static string Size {
             get {
                 return ResourceManager.GetString("Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Führt zu einem weichem Scrollen in den Medienlisten. Dies führt aber dazu das Windows diese Liste komplett auf einmal rendert. Dies verbraucht mehr Arbeitspeicher und kostet viel CPU Leistung. Zusätzlich dauert das Anzeigen der Listen sehr viel länger. ähnelt.
+        /// </summary>
+        public static string SmoothScrollingDescription {
+            get {
+                return ResourceManager.GetString("SmoothScrollingDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die weiches scrollen in den Medienlisten ähnelt.
+        /// </summary>
+        public static string SmoothScrollingTitle {
+            get {
+                return ResourceManager.GetString("SmoothScrollingTitle", resourceCulture);
             }
         }
         
@@ -651,6 +723,15 @@ namespace DMSApiWrapperDemo.Properties {
         public static string TitleSearch {
             get {
                 return ResourceManager.GetString("TitleSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dieses Gerät ist im DMS ein vertrauenswürdiges Gerät ähnelt.
+        /// </summary>
+        public static string TrustedDevice {
+            get {
+                return ResourceManager.GetString("TrustedDevice", resourceCulture);
             }
         }
         

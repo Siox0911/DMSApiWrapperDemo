@@ -146,7 +146,14 @@ namespace DMSApiWrapperDemo
             if (VideoFileItem != null)
             {
                 //Eine m3u Datei von dem ausgewählten Video erzeugen und dem System übergeben.
-                Process.Start(VideoFileItem.CreateM3UFile());
+                try
+                {
+                    Process.Start(VideoFileItem.CreateM3UFile());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

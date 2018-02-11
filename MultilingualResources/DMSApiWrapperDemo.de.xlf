@@ -155,8 +155,8 @@
           <target state="new">Einstellungen</target>
         </trans-unit>
         <trans-unit id="SettingsPWUSER" translate="yes" xml:space="preserve">
-          <source>Hostname, Port, Benutzer und Passwort muss ausgefüllt werden.</source>
-          <target state="new">Hostname, Port, Benutzer und Passwort muss ausgefüllt werden.</target>
+          <source>Benutzer und Passwort muss ausgefüllt werden.</source>
+          <target state="new">Benutzer und Passwort muss ausgefüllt werden.</target>
         </trans-unit>
         <trans-unit id="Title" translate="yes" xml:space="preserve">
           <source>Titel</source>
@@ -309,6 +309,42 @@
         <trans-unit id="DeleteRecordingsQuestion" translate="yes" xml:space="preserve">
           <source>Möchtest du diese Aufnahmen löschen?</source>
           <target state="new">Möchtest du diese Aufnahmen löschen?</target>
+        </trans-unit>
+        <trans-unit id="TrustedDevice" translate="yes" xml:space="preserve">
+          <source>Dieses Gerät ist im DMS ein vertrauenswürdiges Gerät</source>
+          <target state="new">Dieses Gerät ist im DMS ein vertrauenswürdiges Gerät</target>
+        </trans-unit>
+        <trans-unit id="Credentials" translate="yes" xml:space="preserve">
+          <source>Anmeldeinformationen</source>
+          <target state="new">Anmeldeinformationen</target>
+        </trans-unit>
+        <trans-unit id="SettingsHostNamePort" translate="yes" xml:space="preserve">
+          <source>Hostname und Port müssen gesetzt werden.</source>
+          <target state="new">Hostname und Port müssen gesetzt werden.</target>
+        </trans-unit>
+        <trans-unit id="BypassLocalhostDescription" translate="yes" xml:space="preserve">
+          <source>Statt Playlisten mit UPnP Streams zu erstellen, wird direkt auf die Mediendatei verwiesen. Dies funktioniert nicht mit der Option  Play (komplette Liste). Wenn der DMS nicht auf dem lokalen PC läuft, kann dies Fehler erzeugen, wenn nicht genügend Rechte vorhanden sind.</source>
+          <target state="new">Statt Playlisten mit UPnP Streams zu erstellen, wird direkt auf die Mediendatei verwiesen. Dies funktioniert nicht mit der Option  Play (komplette Liste). Wenn der DMS nicht auf dem lokalen PC läuft, kann dies Fehler erzeugen, wenn nicht genügend Rechte vorhanden sind.</target>
+        </trans-unit>
+        <trans-unit id="BypassLocalhostTitel" translate="yes" xml:space="preserve">
+          <source>Umgehe Playlistenerstellung</source>
+          <target state="new">Umgehe Playlistenerstellung</target>
+        </trans-unit>
+        <trans-unit id="OtherOptions" translate="yes" xml:space="preserve">
+          <source>Andere Einstellungen</source>
+          <target state="new">Andere Einstellungen</target>
+        </trans-unit>
+        <trans-unit id="Experimental" translate="yes" xml:space="preserve">
+          <source>Experimentell</source>
+          <target state="new">Experimentell</target>
+        </trans-unit>
+        <trans-unit id="SmoothScrollingTitle" translate="yes" xml:space="preserve">
+          <source>weiches scrollen in den Medienlisten</source>
+          <target state="new">weiches scrollen in den Medienlisten</target>
+        </trans-unit>
+        <trans-unit id="SmoothScrollingDescription" translate="yes" xml:space="preserve">
+          <source>Führt zu einem weichem Scrollen in den Medienlisten. Dies führt aber dazu das Windows diese Liste komplett auf einmal rendert. Dies verbraucht mehr Arbeitspeicher und kostet viel CPU Leistung. Zusätzlich dauert das Anzeigen der Listen sehr viel länger.</source>
+          <target state="new">Führt zu einem weichem Scrollen in den Medienlisten. Dies führt aber dazu das Windows diese Liste komplett auf einmal rendert. Dies verbraucht mehr Arbeitspeicher und kostet viel CPU Leistung. Zusätzlich dauert das Anzeigen der Listen sehr viel länger.</target>
         </trans-unit>
       </group>
     </body>

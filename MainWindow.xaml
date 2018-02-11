@@ -6,7 +6,7 @@
         xmlns:properties="clr-namespace:DMSApiWrapperDemo.Properties"
         xmlns:local="clr-namespace:DMSApiWrapperDemo"
         mc:Ignorable="d"
-        Title="DMSApiWrapperDemo" Height="660" Width="1024" Loaded="Window_Loaded" Language="de-DE">
+        Title="DMSApiWrapperDemo" Height="660" Width="1024" Loaded="Window_Loaded">
     <!-- Canvas, weil man hier festlegen kann in welcher Ebene ein Grid arbeitet. Das Hamburgermenu liegt über dem Grid wo auch der Frame liegt -->
     <Canvas x:Name="canvas" Height="Auto">
 

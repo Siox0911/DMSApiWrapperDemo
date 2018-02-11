@@ -82,5 +82,41 @@ namespace DMSApiWrapperDemo.Properties {
                 this["Entropy"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TrustedDevice {
+            get {
+                return ((bool)(this["TrustedDevice"]));
+            }
+            set {
+                this["TrustedDevice"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BypassLocalhost {
+            get {
+                return ((bool)(this["BypassLocalhost"]));
+            }
+            set {
+                this["BypassLocalhost"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SmoothScrolling {
+            get {
+                return ((bool)(this["SmoothScrolling"]));
+            }
+            set {
+                this["SmoothScrolling"] = value;
+            }
+        }
     }
 }

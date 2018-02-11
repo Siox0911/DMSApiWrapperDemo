@@ -17,7 +17,6 @@ namespace DMSApiWrapperDemo
     /// </summary>
     public partial class App : Application
     {
-
         private CultureInfo cultureOverride = new CultureInfo("en");
 
         protected override void OnStartup(StartupEventArgs e)

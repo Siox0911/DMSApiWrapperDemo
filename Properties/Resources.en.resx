@@ -124,7 +124,7 @@
     <value>Settings</value>
   </data>
   <data name="SettingsPWUSER" xml:space="preserve">
-    <value>Host name, port, user and password must be completed.</value>
+    <value>User and password must be completed.</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Title</value>
@@ -239,5 +239,32 @@
   </data>
   <data name="DeleteRecordingsQuestion" xml:space="preserve">
     <value>Do you want to delete these recordings?</value>
+  </data>
+  <data name="TrustedDevice" xml:space="preserve">
+    <value>This device is a trusted device on DMS</value>
+  </data>
+  <data name="Credentials" xml:space="preserve">
+    <value>Credentials</value>
+  </data>
+  <data name="SettingsHostNamePort" xml:space="preserve">
+    <value>Hostname or Port must be set</value>
+  </data>
+  <data name="BypassLocalhostDescription" xml:space="preserve">
+    <value>Instead of creating playlists with UPnP streams, the media file is referenced directly. This does not work with the option Play (complete list). If the DMS is not running on the local PC, this can generate errors if there are not enough rights.</value>
+  </data>
+  <data name="BypassLocalhostTitel" xml:space="preserve">
+    <value>Avoid playlist creation</value>
+  </data>
+  <data name="OtherOptions" xml:space="preserve">
+    <value>Other options</value>
+  </data>
+  <data name="Experimental" xml:space="preserve">
+    <value>Experimentel</value>
+  </data>
+  <data name="SmoothScrollingTitle" xml:space="preserve">
+    <value>smooth scrolling in the media lists</value>
+  </data>
+  <data name="SmoothScrollingDescription" xml:space="preserve">
+    <value>Causes a soft scrolling in the media lists. However, this will cause Windows to render this list completely at once. This consumes more memory and costs a lot of CPU power. In addition, displaying the lists takes much longer.</value>
   </data>
 </root>
