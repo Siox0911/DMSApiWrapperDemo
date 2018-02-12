@@ -137,6 +137,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\segmdl2.ttf" />
+    <None Include="changelog.md" />
+    <None Include="LICENSE" />
     <None Include="MultilingualResources\xliff-core-1.2-transitional.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -175,6 +177,9 @@
   <ItemGroup>
     <XliffResource Include="MultilingualResources\DMSApiWrapperDemo.de.xlf" />
     <XliffResource Include="MultilingualResources\DMSApiWrapperDemo.en.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />

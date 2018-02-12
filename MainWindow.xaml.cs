@@ -25,15 +25,14 @@ namespace DMSApiWrapperDemo
         public MainWindow()
         {
             InitializeComponent();
+            ToolTipService.ShowDurationProperty.OverrideMetadata(typeof(DependencyObject), new FrameworkPropertyMetadata(25000));
         }
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //TODO: Es gibt noch kein Item für die Anwendung
             //Icon = Properties.Resources.Werkbuch464x64.ToImageSource();
             var settings = PageEinstellungen.GetInstance() ?? new PageEinstellungen();
-
-            ToolTipService.ShowDurationProperty.OverrideMetadata(typeof(DependencyObject), new FrameworkPropertyMetadata(25000));
 
             //Api instanziieren
             dvbApi = new DVBViewerServerApi
@@ -49,7 +48,7 @@ namespace DMSApiWrapperDemo
             //Wenn etwas bei der Instanziierung schief geht, dann gehe direkt zur Einstellungsseite
             try
             {
-                var version = await dvbApi.ServerVersionAsync;
+                var version = dvbApi.ServerVersion;
                 Title = $"DMSApiWrapperDemo {Assembly.GetExecutingAssembly().GetName().Version}";
                 Title = $"{Title} - {Properties.Resources.ConnectedWith} {version.Version}";
                 error = false;
@@ -74,7 +73,7 @@ namespace DMSApiWrapperDemo
             {
                 if (error)
                 {
-                    Window_Loaded(sender, e);
+                   Window_Loaded(sender, e);
                 }
 
                 switch (stackpanel.Name)

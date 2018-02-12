@@ -107,14 +107,39 @@ namespace DMSApiWrapperDemo
         {
             //Die geänderten Werte der Aufnahme zuordnen
             recordingItem.Title = Titel;
-            recordingItem.Series.Name = SeriesValue;
-            recordingItem.Channel.Name = Channel;
+
+            //Prüfung der Serie
+            if (recordingItem.Series != null)
+            {
+                recordingItem.Series.Name = SeriesValue;
+            }
+            else
+            {
+                recordingItem.Series = new RecordingSeries
+                {
+                    Name = SeriesValue
+                };
+            }
+
+            //Prüfung des Kanals
+            if (recordingItem.Channel != null)
+            {
+                recordingItem.Channel.Name = Channel;
+            }
+            else
+            {
+                recordingItem.Channel = new RecordingChannel
+                {
+                    Name = Channel
+                };
+            }
+
             recordingItem.Info = Info;
             recordingItem.Description = Description;
             //Update dem Server übermitteln
             var res = await recordingItem.UpdateAsync().ConfigureAwait(false);
             //Update auswerten
-            if(res == System.Net.HttpStatusCode.OK)
+            if (res == System.Net.HttpStatusCode.OK)
             {
                 MessageBox.Show(Properties.Resources.UpdateSucceed);
             }

@@ -322,7 +322,7 @@ namespace DMSApiWrapperDemo
             if (recordings != null)
             {
                 var recs = await serverApi.RecordingsAsync;
-                Recordings.Items = (from f in recs.Items where f.Channel?.Name.Equals(channel?.Name) == true select f).ToList();
+                Recordings.Items = (from f in recs.Items where f.Channel?.Name?.Equals(channel?.Name) == true select f).ToList();
                 Recordings = SortRecordings(Recordings);
                 Notify("Recordings");
             }
@@ -473,6 +473,6 @@ namespace DMSApiWrapperDemo
             }
         }
 
- 
+
     }
 }
