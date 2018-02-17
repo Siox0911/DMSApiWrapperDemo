@@ -136,6 +136,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="readme.md" />
     <Resource Include="Fonts\segmdl2.ttf" />
     <None Include="changelog.md" />
     <None Include="LICENSE" />
@@ -180,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Resource Include="img\screenshot.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.ResxResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.ResxResources.targets')" />
