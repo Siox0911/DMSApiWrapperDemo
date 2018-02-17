@@ -41,7 +41,7 @@
         <ComboBox ItemsSource="{Binding Series, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Text="{Binding SeriesValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Margin="5" Padding="5" IsEditable="True"/>
 
         <!-- Buttons -->
-        <Button x:Name="btnSave" Content="{x:Static properties:Resources.Save}" Click="BtnSave_Click" Margin="5" Padding="5" Grid.Row="6" Grid.Column="1"/>
-        <Button x:Name="btnCancel" Content="{x:Static properties:Resources.Cancel}" Click="BtnCancel_Click" Margin="5" Padding="5" Grid.Row="6" Grid.Column="3"/>
+        <Button x:Name="btnSave" Content="{x:Static properties:Resources.Save}" Click="BtnSave_Click" IsDefault="True" Margin="5" Padding="5" Grid.Row="6" Grid.Column="1"/>
+        <Button x:Name="btnCancel" Content="{x:Static properties:Resources.Cancel}" Click="BtnCancel_Click" IsCancel="True" Margin="5" Padding="5" Grid.Row="6" Grid.Column="3"/>
     </Grid>
 </Window>

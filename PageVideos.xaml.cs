@@ -125,7 +125,9 @@ namespace DMSApiWrapperDemo
         {
             //Im PFad suchen
             if (!string.IsNullOrEmpty(SearchPath))
+            {
                 Videos = await VideoFileList.GetVideoFileListByPathAsync(SearchPath).ConfigureAwait(false);
+            }
         }
 
         private async void BtnAlleVideos_Click(object sender, RoutedEventArgs e)
@@ -137,8 +139,10 @@ namespace DMSApiWrapperDemo
         private async void BtnSearchTitle_Click(object sender, RoutedEventArgs e)
         {
             //Titelsuche
-            if (string.IsNullOrEmpty(SearchTitle))
+            if (!string.IsNullOrEmpty(SearchTitle))
+            {
                 Videos = await VideoFileList.GetVideoFileListAsync(SearchTitle).ConfigureAwait(false);
+            }
         }
 
         private void BtnVideoplayer_Click(object sender, RoutedEventArgs e)

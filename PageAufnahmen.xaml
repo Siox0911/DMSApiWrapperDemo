@@ -31,7 +31,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="{x:Static properties:Resources.ChooseDVBViewer}" Margin="5" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" ItemsSource="{Binding Clients, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}" SelectedItem="{Binding Client, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}" SelectedValuePath="Name" DisplayMemberPath="Name" Margin="5" Padding="5" VerticalAlignment="Center"  Background="Transparent"/>
+                    <ComboBox Grid.Row="1" ItemsSource="{Binding Clients.Items, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}" SelectedItem="{Binding Client, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}" SelectedValuePath="Name" DisplayMemberPath="Name" Margin="5" Padding="5" VerticalAlignment="Center"  Background="Transparent"/>
                     <Button Grid.Column="1" Grid.Row="1" x:Name="btnPlay" Click="BtnPlay_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Playback}"/>
                 </Grid>
             </GroupBox>

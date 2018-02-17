@@ -40,6 +40,8 @@ namespace DMSApiWrapperDemo
         //Die Beschreibung
         private string description;
 
+        private static string resultError;
+
         /// <summary>
         /// Die Serien
         /// </summary>
@@ -137,21 +139,30 @@ namespace DMSApiWrapperDemo
             recordingItem.Info = Info;
             recordingItem.Description = Description;
             //Update dem Server übermitteln
-            var res = await recordingItem.UpdateAsync().ConfigureAwait(false);
+            var res = await recordingItem.UpdateAsync();
             //Update auswerten
             if (res == System.Net.HttpStatusCode.OK)
             {
-                MessageBox.Show(Properties.Resources.UpdateSucceed);
+                DialogResult = true;
+                Close();
             }
             else
             {
-                MessageBox.Show($"{Properties.Resources.UpdateFailedWithCode} {res}");
+                resultError = res.ToString();
+                DialogResult = false;
+                Close();
             }
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = false;
             Close();
+        }
+
+        internal string GetErrorCode()
+        {
+            return resultError;
         }
     }
 }
