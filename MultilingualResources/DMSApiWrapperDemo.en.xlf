@@ -346,6 +346,26 @@
           <source>Führt zu einem weichem Scrollen in den Medienlisten. Dies führt aber dazu das Windows diese Liste komplett auf einmal rendert. Dies verbraucht mehr Arbeitspeicher und kostet viel CPU Leistung. Zusätzlich dauert das Anzeigen der Listen sehr viel länger.</source>
           <target state="translated">Causes a soft scrolling in the media lists. However, this will cause Windows to render this list completely at once. This consumes more memory and costs a lot of CPU power. In addition, displaying the lists takes much longer.</target>
         </trans-unit>
+        <trans-unit id="Refresh" translate="yes" xml:space="preserve">
+          <source>Refresh</source>
+          <target state="translated">Refresh</target>
+        </trans-unit>
+        <trans-unit id="LiveTv" translate="yes" xml:space="preserve">
+          <source>Live Fernsehen</source>
+          <target state="translated">Live Television</target>
+        </trans-unit>
+        <trans-unit id="EPG" translate="yes" xml:space="preserve">
+          <source>EPG</source>
+          <target state="translated">EPG</target>
+        </trans-unit>
+        <trans-unit id="EPGText" translate="yes" xml:space="preserve">
+          <source>Elektronischer Programmführer</source>
+          <target state="translated">Electronic program guide</target>
+        </trans-unit>
+        <trans-unit id="DVBViewerRemote" translate="yes" xml:space="preserve">
+          <source>DVBViewer Fernbedienung</source>
+          <target state="translated">DVBViewer Remote</target>
+        </trans-unit>
       </group>
     </body>
   </file>

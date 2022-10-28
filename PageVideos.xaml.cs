@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 using DVBViewerServerApiWrapper;
 using DVBViewerServerApiWrapper.Helper;
 using DVBViewerServerApiWrapper.Model;
@@ -36,7 +37,7 @@ namespace DMSApiWrapperDemo
         //Das ausgewählte Video
         private VideoFileItem videoFileItem;
         //Der ApiWrapper
-        private DVBViewerServerApi serverApi;
+        private readonly DVBViewerServerApi serverApi;
         //Diese Seite selbst
         private static PageVideos pageVideos;
 
@@ -59,26 +60,32 @@ namespace DMSApiWrapperDemo
         /// Der ausgewählte DVBViewer Client
         /// </summary>
         public DVBViewerClient Client { get => client; set { client = value; Notify(); } }
+
         /// <summary>
         /// Die Anzahl der Videos
         /// </summary>
         public int NumberOfVideos { get => numberOfVideos; set { numberOfVideos = value; Notify(); } }
+
         /// <summary>
         /// Der Text der Titelsuche
         /// </summary>
         public string SearchTitle { get => searchTitle; set { searchTitle = value; Notify(); } }
+
         /// <summary>
         /// Der Text der Pfadsuche
         /// </summary>
         public string SearchPath { get => searchPath; set { searchPath = value; Notify(); } }
+
         /// <summary>
         /// Die Videoliste, egal ob komplett oder gefiltert
         /// </summary>
         public VideoFileList Videos { get => videos; set { videos = value; Notify(); } }
+
         /// <summary>
         /// Das ausgewählte Video
         /// </summary>
         public VideoFileItem VideoFileItem { get => videoFileItem; set { videoFileItem = value; Notify(); } }
+
         /// <summary>
         /// Die Gesamtgröße der Videoliste
         /// </summary>
@@ -120,7 +127,6 @@ namespace DMSApiWrapperDemo
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(argument));
         }
 
-
         private async void BtnSearchPath_Click(object sender, RoutedEventArgs e)
         {
             //Im PFad suchen
@@ -145,6 +151,24 @@ namespace DMSApiWrapperDemo
             }
         }
 
+        private ICommand btnVideoPlayerClick;
+        public ICommand BtnVideoPlayerClick
+        {
+            get
+            {
+                if (btnVideoPlayerClick == null)
+                {
+                    btnVideoPlayerClick = new RelayCommand(BtnVideoplayer_Click);
+                }
+                return btnVideoPlayerClick;
+            }
+        }
+
+        private void BtnVideoplayer_Click()
+        {
+            BtnVideoplayer_Click(null, null);
+        }
+
         private void BtnVideoplayer_Click(object sender, RoutedEventArgs e)
         {
             if (VideoFileItem != null)
@@ -161,6 +185,24 @@ namespace DMSApiWrapperDemo
             }
         }
 
+        private ICommand btnVideoPlayerListClick;
+        public ICommand BtnVideoPlayerListClick
+        {
+            get
+            {
+                if (btnVideoPlayerListClick == null)
+                {
+                    btnVideoPlayerListClick = new RelayCommand(BtnVideoplayerList_Click);
+                }
+                return btnVideoPlayerListClick;
+            }
+        }
+
+        private void BtnVideoplayerList_Click()
+        {
+            BtnVideoplayerList_Click(null, null);
+        }
+
         private void BtnVideoplayerList_Click(object sender, RoutedEventArgs e)
         {
             if (Videos != null)
@@ -168,6 +210,24 @@ namespace DMSApiWrapperDemo
                 //Eine m3u Datei von den Videos aus der Liste erzeugen und dem System übergeben.
                 Process.Start(Videos.CreateM3UFile());
             }
+        }
+
+        private ICommand btnPlayClick;
+        public ICommand BtnPlayClick
+        {
+            get
+            {
+                if (btnPlayClick == null)
+                {
+                    btnPlayClick = new RelayCommand(BtnPlay_Click);
+                }
+                return btnPlayClick;
+            }
+        }
+
+        private void BtnPlay_Click()
+        {
+            BtnPlay_Click(null, null);
         }
 
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
@@ -201,6 +261,5 @@ namespace DMSApiWrapperDemo
         {
             //Nicht genutzt
         }
-
     }
 }

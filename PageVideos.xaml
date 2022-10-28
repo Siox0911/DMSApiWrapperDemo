@@ -9,47 +9,6 @@
       d:DesignHeight="500" d:DesignWidth="900"
       Title="PageVideos" Loaded="Page_Loaded">
     <Page.Resources>
-        <LinearGradientBrush x:Key="Flat3DBorderBrush" StartPoint="0.499,0" EndPoint="0.501,1">
-            <GradientStop Color="#FFF" Offset="0"/>
-            <GradientStop Color="#DDD" Offset="0.01"/>
-            <GradientStop Color="#AAA" Offset="0.99"/>
-            <GradientStop Color="#888" Offset="1"/>
-        </LinearGradientBrush>
-        <DataTemplate x:Key="PlayDVBViewer">
-            <GroupBox Header="{x:Static properties:Resources.PlayInDVBViewer}" UseLayoutRounding="True" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="{x:Static properties:Resources.ChooseDVBViewer}" Margin="5" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" ItemsSource="{Binding Clients.Items, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageVideos}}}" SelectedItem="{Binding Client, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageVideos}}}" SelectedValuePath="Name" DisplayMemberPath="Name" Margin="5" Padding="5" VerticalAlignment="Center"  Background="Transparent"/>
-                    <Button Grid.Column="1" Grid.Row="1" x:Name="btnPlay" Click="BtnPlay_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Playback}"/>
-                </Grid>
-            </GroupBox>
-        </DataTemplate>
-        <DataTemplate x:Key="PlayLocalPlayer">
-            <GroupBox Header="{x:Static properties:Resources.PlayBackOtherOptions}" UseLayoutRounding="True" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="{x:Static properties:Resources.LocalPlayer}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" TextAlignment="Center" Margin="5" VerticalAlignment="Center"/>
-                    <Button Grid.Column="0" Grid.Row="1" x:Name="btnVideoplayer" Click="BtnVideoplayer_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Play}"/>
-                    <Button Grid.Column="2" Grid.Row="1" x:Name="btnVideoplayerList" Click="BtnVideoplayerList_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.PlayCompleteList}"/>
-                </Grid>
-            </GroupBox>
-        </DataTemplate>
-        <SolidColorBrush x:Key="AlternateBrush" Color="#19106BB8"/>
     </Page.Resources>
     <!-- Gesamt Grid -->
     <Grid x:Name="grid">

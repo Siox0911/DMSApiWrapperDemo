@@ -372,4 +372,19 @@
   <data name="SmoothScrollingTitle" xml:space="preserve">
     <value>weiches scrollen in den Medienlisten</value>
   </data>
+  <data name="DVBViewerRemote" xml:space="preserve">
+    <value>DVBViewer Fernbedienung</value>
+  </data>
+  <data name="EPG" xml:space="preserve">
+    <value>EPG</value>
+  </data>
+  <data name="EPGText" xml:space="preserve">
+    <value>Elektronischer Programmführer</value>
+  </data>
+  <data name="LiveTv" xml:space="preserve">
+    <value>Live Fernsehen</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
 </root>

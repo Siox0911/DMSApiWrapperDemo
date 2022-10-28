@@ -76,7 +76,7 @@
                         </ToolTip>
                     </CheckBox.ToolTip>
                 </CheckBox>
-                <!--<GroupBox Header="{x:Static properties:Resources.Experimental}">
+                <GroupBox Header="{x:Static properties:Resources.Experimental}">
                     <CheckBox IsChecked="{Binding SmoothScrolling}" VerticalContentAlignment="Center" Content="{x:Static properties:Resources.SmoothScrollingTitle}" Padding="5">
                         <CheckBox.ToolTip>
                             <ToolTip Width="450">
@@ -84,7 +84,7 @@
                             </ToolTip>
                         </CheckBox.ToolTip>
                     </CheckBox>
-                </GroupBox>-->
+                </GroupBox>
             </StackPanel>
         </GroupBox>
     </Grid>

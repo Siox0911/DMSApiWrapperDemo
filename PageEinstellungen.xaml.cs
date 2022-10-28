@@ -30,26 +30,32 @@ namespace DMSApiWrapperDemo
         /// Hostname, IPAdresse des Servers
         /// </summary>
         public string Hostname { get { return hostname; } set { hostname = value; Notify(); } }
+
         /// <summary>
         /// Port des Servers
         /// </summary>
         public int Port { get { return port; } set { port = value; Notify(); } }
+
         /// <summary>
         /// Benutzername für den Server
         /// </summary>
         public string Username { get { return username; } set { username = value; Notify(); } }
+
         /// <summary>
         /// Der Text der angezeigt wird, wenn auf den Button Speichern geklickt wird.
         /// </summary>
         public string TestText { get { return testText; } set { testText = value; Notify(); } }
+
         /// <summary>
         /// The device is a trusted device in the DMS
         /// </summary>
         public bool TrustedDevice { get => trustedDevice; set { trustedDevice = value; Notify(); } }
+
         /// <summary>
         /// Avoids Playlists
         /// </summary>
         public bool BypassLocalhost { get => bypassLocalhost; set { bypassLocalhost = value; Notify(); } }
+
         /// <summary>
         /// Enables smooth scrolling in the media lists
         /// </summary>
@@ -58,7 +64,7 @@ namespace DMSApiWrapperDemo
         /// <summary>
         /// Sicheres Passwort für den Server
         /// </summary>
-        public SecureString Password;
+        internal SecureString Password;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -111,8 +117,9 @@ namespace DMSApiWrapperDemo
                 Password.MakeReadOnly();
 
                 //Einstellungen speichern
-                Settings.Default.Password = DVBViewerServerApiWrapper.Helper.Security.GenerateEnrcyptedPassword(pwBox.Password, out string entropy);
-                Settings.Default.Entropy = entropy;
+                Settings.Default.Password = DVBViewerServerApiWrapper.Helper.Security.GenerateEnrcyptedPassword(pwBox.Password, out byte[] entropy, out byte[] IV);
+                Settings.Default.Entropy = Convert.ToBase64String(entropy);
+                Settings.Default.IV = Convert.ToBase64String(IV);
             }
             Settings.Default.Hostname = Hostname;
             Settings.Default.Port = Port;
@@ -162,7 +169,7 @@ namespace DMSApiWrapperDemo
                 if (Settings.Default.Password.Length > 0)
                 {
                     //Password in den SecureString bringen
-                    pwBox.Password = DVBViewerServerApiWrapper.Helper.Security.GenerateUnEnrcyptedPassword(Settings.Default.Password, Settings.Default.Entropy);
+                    pwBox.Password = DVBViewerServerApiWrapper.Helper.Security.GenerateUnEnrcyptedPassword(Settings.Default.Password, Convert.FromBase64String(Settings.Default.Entropy), Convert.FromBase64String(Settings.Default.IV));
                     Password = new SecureString();
                     foreach (char item in pwBox.Password)
                     {

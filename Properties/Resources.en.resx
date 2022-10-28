@@ -267,4 +267,19 @@
   <data name="SmoothScrollingDescription" xml:space="preserve">
     <value>Causes a soft scrolling in the media lists. However, this will cause Windows to render this list completely at once. This consumes more memory and costs a lot of CPU power. In addition, displaying the lists takes much longer.</value>
   </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="LiveTv" xml:space="preserve">
+    <value>Live Television</value>
+  </data>
+  <data name="EPG" xml:space="preserve">
+    <value>EPG</value>
+  </data>
+  <data name="EPGText" xml:space="preserve">
+    <value>Electronic program guide</value>
+  </data>
+  <data name="DVBViewerRemote" xml:space="preserve">
+    <value>DVBViewer Remote</value>
+  </data>
 </root>

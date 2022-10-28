@@ -9,6 +9,8 @@ using System.Windows.Input;
 using DVBViewerServerApiWrapper.Model;
 using DVBViewerServerApiWrapper;
 using System.Diagnostics;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace DMSApiWrapperDemo
 {
@@ -26,7 +28,7 @@ namespace DMSApiWrapperDemo
         //Die Liste der Aufnahmen, wenn mehrere ausgewählt sind
         private List<RecordingItem> recordingItems;
         //Der ApiWrapper
-        private DVBViewerServerApi serverApi;
+        private readonly DVBViewerServerApi serverApi;
         //Liste der DVBViewer Clients
         private DVBViewerClients clients;
         //Der ausgewählte DVBViewer Client
@@ -63,30 +65,37 @@ namespace DMSApiWrapperDemo
         /// Aufnahmeliste
         /// </summary>
         public RecordingList Recordings { get { return recordings; } set { recordings = value; Notify(); } }
+
         /// <summary>
         /// Ausgewähltes Aufnahme Item
         /// </summary>
         public RecordingItem RecordingItem { get { return recordingItem; } set { recordingItem = value; Notify(); } }
+
         /// <summary>
         /// Liste der DVBViewer Clients
         /// </summary>
         public DVBViewerClients Clients { get { return clients; } set { clients = value; Notify(); } }
+
         /// <summary>
         /// Der ausgewählte DVBViewer Client
         /// </summary>
         public DVBViewerClient Client { get { return client; } set { client = value; Notify(); } }
+
         /// <summary>
         /// Der Suchetext in der Beschreibung
         /// </summary>
         public string SearchDesc { get { return searchDesc; } set { searchDesc = value; Notify(); } }
+
         /// <summary>
         /// Der Suchtext im Title
         /// </summary>
         public string SearchTitle { get { return searchTitle; } set { searchTitle = value; Notify(); } }
+
         /// <summary>
         /// Anzahl der Aufnahmen
         /// </summary>
         public int AnzahlAufnahmen { get { return anzahlAufnahmen; } set { anzahlAufnahmen = value; Notify(); } }
+
         /// <summary>
         /// Pfad für die Bilddatei
         /// </summary>
@@ -94,44 +103,53 @@ namespace DMSApiWrapperDemo
         {
             get
             {
-                if (RecordingItem != null && Recordings != null && Recordings.ImageURL != null && RecordingItem.Image != null)
+                if (RecordingItem?.Image != null && Recordings?.ImageURL != null)
                 {
                     return Recordings.ImageURL + RecordingItem.Image;
                 }
                 return null;
             }
         }
+
         /// <summary>
         /// Die Liste aller Serien
         /// </summary>
         public List<RecordingSeries> Series { get { return series; } set { series = value; Notify(); } }
+
         /// <summary>
         /// Die ausgewählte Serie
         /// </summary>
         public RecordingSeries Serie { get { return serie; } set { serie = value; Notify(); } }
+
         /// <summary>
         /// Eine Liste der Sender
         /// </summary>
         public List<RecordingChannel> Channels { get { return channels; } set { channels = value; Notify(); } }
+
         /// <summary>
         /// Der ausgewählte Sender
         /// </summary>
         public RecordingChannel Channel { get { return channel; } set { channel = value; Notify(); } }
+
         /// <summary>
         /// EditMode an oder aus
         /// </summary>
         public bool EditMode { get => editMode; set { editMode = value; Notify(); } }
+
         /// <summary>
         /// Die Serie in der EditComboBox, die entweder ausgewählt oder selbst hinein geschrieben wurde.
         /// </summary>
         public string SeriesValue { get => seriesValue; set { seriesValue = value; Notify(); } }
+
         /// <summary>
         /// Die Liste mit Aufnahmen, wenn mehrere ausgewählt sind.
         /// </summary>
         public List<RecordingItem> RecordingItems { get => recordingItems; set { recordingItems = value; Notify(); } }
 
-        //public bool SmoothScrolling { get => !PageEinstellungen.GetInstance().SmoothScrolling ; set { PageEinstellungen.GetInstance().SmoothScrolling = !value; Notify(); } }
-
+        /// <summary>
+        /// Aktiviert ein weiches Scrollen. Das ist besonders nützlich, wenn die DetailRow angezeigt wird.
+        /// </summary>
+        public bool SmoothScrolling { get => !PageEinstellungen.GetInstance().SmoothScrolling ; set { PageEinstellungen.GetInstance().SmoothScrolling = !value; Notify(); } }
 
         /// <summary>
         /// Erzeugt eine Instanz dieser Seite
@@ -145,7 +163,6 @@ namespace DMSApiWrapperDemo
             DataContext = this;
             //Server Api anzapfen
             serverApi = DVBViewerServerApi.GetCurrentInstance();
-
         }
 
         internal static PageAufnahmen GetInstance()
@@ -164,14 +181,15 @@ namespace DMSApiWrapperDemo
             //Clients abholen
             Clients = await serverApi.DVBViewerClientsAsync;
             //Wenn welche vorhanden sind, den ersten nehmen
-            if (Clients.Items.Count > 0)
+            if (Clients?.Items.Count > 0)
                 Client = Clients.Items[0];
 
             //Serien abrufen
-            Series = await RecordingSeries.GetSeriesAsync();
+            Series = await RecordingSeries.GetSeriesAsync().ConfigureAwait(false);
             //Sender abfrufen
-            Channels = await RecordingChannel.GetChannelsAsync();
+            Channels = await RecordingChannel.GetChannelsAsync().ConfigureAwait(false);
         }
+
         /// <summary>
         /// Ereignis auslösen damit die UI Oberfläche aktualisiert wird.
         /// </summary>
@@ -245,10 +263,47 @@ namespace DMSApiWrapperDemo
             return recordingList;
         }
 
+
+        private ICommand btnPlayClick;
+        public ICommand BtnPlayClick
+        {
+            get
+            {
+                if (btnPlayClick == null)
+                {
+                    btnPlayClick = new RelayCommand(BtnPlay_Click);
+                }
+                return btnPlayClick;
+            }
+        }
+
+        private void BtnPlay_Click()
+        {
+            BtnPlay_Click(null, null);
+        }
+
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
             //Die Aufnahme auf dem DVBViewer Client abspielen
             RecordingItem?.PlayAsync(Client);
+        }
+
+        private ICommand btnVideoPlayerClick;
+        public ICommand BtnVideoPlayerClick
+        {
+            get
+            {
+                if (btnVideoPlayerClick == null)
+                {
+                    btnVideoPlayerClick = new RelayCommand(BtnVideoplayer_Click);
+                }
+                return btnVideoPlayerClick;
+            }
+        }
+
+        private void BtnVideoplayer_Click()
+        {
+            BtnVideoplayer_Click(null, null);
         }
 
         private void BtnVideoplayer_Click(object sender, RoutedEventArgs e)
@@ -265,6 +320,24 @@ namespace DMSApiWrapperDemo
                     MessageBox.Show(ex.Message, Properties.Resources.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private ICommand btnVideoPlayerListClick;
+        public ICommand BtnVideoPlayerListClick
+        {
+            get
+            {
+                if (btnVideoPlayerListClick == null)
+                {
+                    btnVideoPlayerListClick = new RelayCommand(BtnVideoplayerList_Click);
+                }
+                return btnVideoPlayerListClick;
+            }
+        }
+
+        private void BtnVideoplayerList_Click()
+        {
+            BtnVideoplayerList_Click(null, null);
         }
 
         private void BtnVideoplayerList_Click(object sender, RoutedEventArgs e)
@@ -300,17 +373,16 @@ namespace DMSApiWrapperDemo
             if (Recordings != null)
             {
                 Recordings = SortRecordings(await RecordingList.GetRecordingsAsync().ConfigureAwait(false));
-                Series = await RecordingSeries.GetSeriesAsync().ConfigureAwait(false);
             }
         }
 
         private async void CbSeries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Aufnahmen einer Serie anzeigen
-            if (recordings != null)
+            if (recordings != null && serie != null)
             {
                 var recs = await serverApi.RecordingsAsync;
-                Recordings.Items = (from f in recs.Items where f.Series?.Name.Equals(Serie?.Name) == true select f).ToList();
+                Recordings.Items = (from f in recs.Items where f.Series?.Name?.Equals(serie?.Name) == true select f).ToList();
                 Recordings = SortRecordings(Recordings);
                 Notify("Recordings");
             }
@@ -319,7 +391,7 @@ namespace DMSApiWrapperDemo
         private async void CbSender_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Aufnahmen eines Senders anzeigen
-            if (recordings != null)
+            if (recordings != null && channel != null)
             {
                 var recs = await serverApi.RecordingsAsync;
                 Recordings.Items = (from f in recs.Items where f.Channel?.Name?.Equals(channel?.Name) == true select f).ToList();
@@ -362,7 +434,6 @@ namespace DMSApiWrapperDemo
                             MessageBox.Show($"{item.Title} {Properties.Resources.ChangeASerieFromTheTitle}\n{Properties.Resources.MessageFromServer} {res.ToString()}", Properties.Resources.ErrorUpdateSeries, MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
-                    Series = await RecordingSeries.GetSeriesAsync().ConfigureAwait(false);
                     //Die Sortierung wird nicht übernommen
                     Recordings = SortRecordings(await serverApi.RecordingsAsync.ConfigureAwait(false));
                 }
@@ -391,7 +462,6 @@ namespace DMSApiWrapperDemo
                     {
                         MessageBox.Show(message, Properties.Resources.DeleteDialogHeader, MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-                    Series = await RecordingSeries.GetSeriesAsync().ConfigureAwait(false);
                     //Die Sortierung wird nicht übernommen
                     Recordings = SortRecordings(await serverApi.RecordingsAsync.ConfigureAwait(false));
                 }
@@ -409,7 +479,7 @@ namespace DMSApiWrapperDemo
             if (!EditMode)
             {
                 //Auswahl löschen
-                dataGrid.SelectedIndex = -1;
+                //dataGrid.SelectedIndex = -1;
             }
         }
 
@@ -474,7 +544,8 @@ namespace DMSApiWrapperDemo
                 {
                     MessageBox.Show(Properties.Resources.UpdateSucceed);
                     Series = await RecordingSeries.GetSeriesAsync().ConfigureAwait(false);
-                    //Die Sortierung wird nicht übernommen
+                    Channels = await RecordingChannel.GetChannelsAsync().ConfigureAwait(false);
+                    //Die Sortierung wird übernommen
                     Recordings = SortRecordings(await serverApi.RecordingsAsync.ConfigureAwait(false));
                 }
                 else if (res == false && !string.IsNullOrEmpty(editWindow.GetErrorCode()))
@@ -482,6 +553,18 @@ namespace DMSApiWrapperDemo
                     MessageBox.Show($"{Properties.Resources.UpdateFailedWithCode} {editWindow.GetErrorCode()}");
                 }
             }
+        }
+
+        private async void BtnRefreshSeries_Click(object sender, RoutedEventArgs e)
+        {
+            //Serien aktualisieren
+            Series = await RecordingSeries.GetSeriesAsync().ConfigureAwait(false);
+        }
+
+        private async void BtnRefreshChannel_Click(object sender, RoutedEventArgs e)
+        {
+            //Kanäle aktualisieren
+            Channels = await RecordingChannel.GetChannelsAsync().ConfigureAwait(false);
         }
     }
 }

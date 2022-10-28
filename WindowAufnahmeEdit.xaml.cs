@@ -46,22 +46,27 @@ namespace DMSApiWrapperDemo
         /// Die Serien
         /// </summary>
         public List<RecordingSeries> Series { get => series; set { series = value; Notify(); } }
+
         /// <summary>
         /// Der Titel der Aufnahme
         /// </summary>
         public string Titel { get => title; set { title = value; Notify(); } }
+
         /// <summary>
         /// Der Untertitel (Info) der Aufnahme
         /// </summary>
         public string Info { get => info; set { info = value; Notify(); } }
+
         /// <summary>
         /// Der Kanal der Aufnahme
         /// </summary>
         public string Channel { get => channel; set { channel = value; Notify(); } }
+
         /// <summary>
         /// Die ausgewählte Serie oder der eingegebene Text
         /// </summary>
         public string SeriesValue { get => seriesValue; set { seriesValue = value; Notify(); } }
+
         /// <summary>
         /// Die Langbeschreibung der Aufnahme
         /// </summary>

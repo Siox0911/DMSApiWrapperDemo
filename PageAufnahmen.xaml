@@ -9,53 +9,10 @@
       x:Name="page" x:Class="DMSApiWrapperDemo.PageAufnahmen"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="1000"
+      d:DataContext="{d:DesignInstance local:PageAufnahmen, IsDesignTimeCreatable=True}"
       Title="PageAufnahmen" Loaded="Page_Loaded">
     <Page.Resources>
-        <AlternationConverter x:Key="AlternationConverter"/>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-        <LinearGradientBrush x:Key="Flat3DBorderBrush" StartPoint="0.499,0" EndPoint="0.501,1">
-            <GradientStop Color="#FFF" Offset="0"/>
-            <GradientStop Color="#DDD" Offset="0.01"/>
-            <GradientStop Color="#AAA" Offset="0.99"/>
-            <GradientStop Color="#888" Offset="1"/>
-        </LinearGradientBrush>
-        <DataTemplate x:Key="PlayDVBViewer">
-            <GroupBox Header="{x:Static properties:Resources.PlayInDVBViewer}" UseLayoutRounding="True" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="{x:Static properties:Resources.ChooseDVBViewer}" Margin="5" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" ItemsSource="{Binding Clients.Items, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}" SelectedItem="{Binding Client, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}" SelectedValuePath="Name" DisplayMemberPath="Name" Margin="5" Padding="5" VerticalAlignment="Center"  Background="Transparent"/>
-                    <Button Grid.Column="1" Grid.Row="1" x:Name="btnPlay" Click="BtnPlay_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Playback}"/>
-                </Grid>
-            </GroupBox>
-        </DataTemplate>
-        <DataTemplate x:Key="PlayLocalPlayer">
-            <GroupBox Header="{x:Static properties:Resources.PlayBackOtherOptions}" UseLayoutRounding="True" Margin="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" TextAlignment="Center" Text="{x:Static properties:Resources.LocalPlayer}" Margin="5" VerticalAlignment="Center" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"/>
-                    <Button Grid.Column="0" Grid.Row="1" x:Name="btnVideoplayer" Click="BtnVideoplayer_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Play}"/>
-                    <!--<TextBlock Grid.Column="2" Text="komplette Liste" Margin="5" VerticalAlignment="Center" TextWrapping="Wrap"/>-->
-                    <Button Grid.Column="2" Grid.Row="1" x:Name="btnVideoplayerList" Click="BtnVideoplayerList_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.PlayCompleteList}"/>
-                </Grid>
-            </GroupBox>
-        </DataTemplate>
-        <SolidColorBrush x:Key="AlternateBrush" Color="#19106BB8"/>
-        <BooleanToVisibilityConverter x:Key="b2v" />
+
     </Page.Resources>
     <!-- Gesamt Grid -->
     <Grid x:Name="grid">
@@ -114,10 +71,10 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{x:Static properties:Resources.TitleSearch}" Margin="5"/>
+                <TextBlock Text="{x:Static properties:Resources.TitleSearch}" Margin="5" Padding="5"/>
                 <TextBox Grid.Row="1" Text="{Binding SearchTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" Padding="5"/>
                 <Button Content="{x:Static properties:Resources.Search}" x:Name="btnSearchTitle" Click="BtnSearchTitle_Click" Grid.Row="1" Grid.Column="1" Margin="5" Padding="5" Background="Transparent"/>
-                <TextBlock Grid.Row="2" Text="{x:Static properties:Resources.DescSearch}" Margin="5"/>
+                <TextBlock Grid.Row="2" Text="{x:Static properties:Resources.DescSearch}" Margin="5" Padding="5"/>
                 <TextBox Grid.Row="3" Text="{Binding SearchDesc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" Padding="5"/>
                 <Button Content="{x:Static properties:Resources.Search}" x:Name="btnSearchDesc" Click="BtnSearchDesc_Click" Grid.Row="3" Grid.Column="1" Margin="5" Padding="5" Background="Transparent"/>
                 <Button Grid.Row="4" x:Name="btnAlleAufnahmen" Click="BtnAlleAufnahmen_Click" Margin="5" Padding="5" Content="{x:Static properties:Resources.ViewAllRecordings}" Background="Transparent"/>
@@ -138,10 +95,12 @@
                     <ColumnDefinition MinWidth="150" Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{x:Static properties:Resources.Series}" Margin="5" />
-                <ComboBox x:Name="cbSeries" Grid.Row="1" ItemsSource="{Binding Series, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Serie, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" Padding="5" SelectionChanged="CbSeries_SelectionChanged"/>
-                <TextBlock Text="{x:Static properties:Resources.Channel}" Grid.Row="2" Margin="5" />
-                <ComboBox x:Name="cbSender" Grid.Row="3" ItemsSource="{Binding Channels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Channel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" Padding="5" SelectionChanged="CbSender_SelectionChanged"/>
+                <TextBlock Text="{x:Static properties:Resources.Series}" Margin="5" Padding="5"/>
+                <ComboBox x:Name="cbSeries" Grid.Row="1" SelectedItem="{Binding Serie, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Series, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" Padding="5" SelectionChanged="CbSeries_SelectionChanged"/>
+                <Button x:Name="btnRefreshSeries" Grid.Row="1" Grid.Column="1" Content="&#xE72C;" Margin="5" Padding="5" Background="Transparent" Click="BtnRefreshSeries_Click" FontFamily="Fonts/#Segoe MDL2 Assets" ToolTip="{x:Static properties:Resources.Refresh}"/>
+                <TextBlock Text="{x:Static properties:Resources.Channel}" Grid.Row="2" Margin="5" Padding="5"/>
+                <ComboBox x:Name="cbSender" Grid.Row="3" SelectedItem="{Binding Channel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Channels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" Padding="5" SelectionChanged="CbSender_SelectionChanged"/>
+                <Button x:Name="btnRefreshChannel" Grid.Row="3" Grid.Column="1" Content="&#xE72C;" Margin="5" Padding="5" Background="Transparent" Click="BtnRefreshChannel_Click" FontFamily="Fonts/#Segoe MDL2 Assets" ToolTip="{x:Static properties:Resources.Refresh}"/>
                 <Button Grid.Row="4" Margin="5" Padding="5" Content="{x:Static properties:Resources.ViewAllRecordings}" Background="Transparent" Visibility="Hidden"/>
             </Grid>
         </GroupBox>
@@ -200,7 +159,7 @@
         </GroupBox>
 
         <!-- DataGrid mit den Daten -->
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Recordings.Items, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding RecordingItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5" AutoGenerateColumns="False" IsReadOnly="True" AlternationCount="1" Margin="5" Background="#7FF0F0F0" VerticalGridLinesBrush="#105895" LayoutUpdated="DataGrid_LayoutUpdated" MouseDown="DataGrid_MouseDown" AlternatingRowBackground="{DynamicResource AlternateBrush}" SelectionChanged="DataGrid_SelectionChanged" Sorting="DataGrid_Sorting" PreviewMouseDoubleClick="DataGrid_PreviewMouseDoubleClick" ScrollViewer.CanContentScroll="True" CanUserReorderColumns="False">
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding Recordings.Items, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding RecordingItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5" AutoGenerateColumns="False" IsReadOnly="True" AlternationCount="1" Margin="5" Background="#7FF0F0F0" VerticalGridLinesBrush="#105895" LayoutUpdated="DataGrid_LayoutUpdated" PreviewMouseDown="DataGrid_MouseDown" AlternatingRowBackground="{DynamicResource AlternateBrush}" SelectionChanged="DataGrid_SelectionChanged" Sorting="DataGrid_Sorting" PreviewMouseDoubleClick="DataGrid_PreviewMouseDoubleClick" ScrollViewer.CanContentScroll="{Binding SmoothScrolling}" CanUserReorderColumns="False">
             <!-- START Animation Teil 1 RowStyle-->
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
@@ -283,12 +242,12 @@
                                 <GroupBox Header="{x:Static properties:Resources.Picture}" MinWidth="120" Margin="5">
                                     <Image Height="64" Source="{Binding ImagePath, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}" Margin="5"/>
                                 </GroupBox>
-                                <ContentPresenter ContentTemplate="{StaticResource ResourceKey=PlayDVBViewer}" Content="{Binding}"/>
-                                <ContentPresenter ContentTemplate="{StaticResource ResourceKey=PlayLocalPlayer}" Content="{Binding}"/>
+                                <ContentPresenter ContentTemplate="{StaticResource ResourceKey=PlayDVBViewer}" Content="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}"/>
+                                <ContentPresenter ContentTemplate="{StaticResource ResourceKey=PlayLocalPlayer}" Content="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PageAufnahmen}}}"/>
                             </StackPanel>
                         </Grid>
                         <!-- Hier wird die lange Description angezeigt -->
-                        <Border Grid.Row="1" MaxWidth="890" Background="#4C2385D8" Margin="5" Padding="5" CornerRadius="24" BorderBrush="{StaticResource Flat3DBorderBrush}" BorderThickness="1">
+                        <Border Grid.Row="1" MaxWidth="890" Background="#4C2385D8" Margin="5" Padding="5" CornerRadius="4" BorderBrush="{StaticResource Flat3DBorderBrush}" BorderThickness="1">
                             <TextBlock Text="{Binding Description}" TextWrapping="Wrap" TextAlignment="Left" TextTrimming="CharacterEllipsis" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
                         </Border>
                     </Grid>

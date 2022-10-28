@@ -19,7 +19,7 @@ namespace DMSApiWrapperDemo.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -259,6 +259,15 @@ namespace DMSApiWrapperDemo.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DVBViewer Fernbedienung ähnelt.
+        /// </summary>
+        public static string DVBViewerRemote {
+            get {
+                return ResourceManager.GetString("DVBViewerRemote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bearbeiten ähnelt.
         /// </summary>
         public static string Edit {
@@ -282,6 +291,24 @@ namespace DMSApiWrapperDemo.Properties {
         public static string EditModeToolTip {
             get {
                 return ResourceManager.GetString("EditModeToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die EPG ähnelt.
+        /// </summary>
+        public static string EPG {
+            get {
+                return ResourceManager.GetString("EPG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Elektronischer Programmführer ähnelt.
+        /// </summary>
+        public static string EPGText {
+            get {
+                return ResourceManager.GetString("EPGText", resourceCulture);
             }
         }
         
@@ -372,6 +399,15 @@ namespace DMSApiWrapperDemo.Properties {
         public static string InfoFile {
             get {
                 return ResourceManager.GetString("InfoFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Live Fernsehen ähnelt.
+        /// </summary>
+        public static string LiveTv {
+            get {
+                return ResourceManager.GetString("LiveTv", resourceCulture);
             }
         }
         
@@ -561,6 +597,15 @@ namespace DMSApiWrapperDemo.Properties {
         public static string Recordings {
             get {
                 return ResourceManager.GetString("Recordings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Refresh ähnelt.
+        /// </summary>
+        public static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
             }
         }
         

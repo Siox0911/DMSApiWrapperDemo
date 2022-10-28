@@ -2,8 +2,55 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DMSApiWrapperDemo"
+             xmlns:properties="clr-namespace:DMSApiWrapperDemo.Properties"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <AlternationConverter x:Key="AlternationConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <LinearGradientBrush x:Key="Flat3DBorderBrush" StartPoint="0.499,0" EndPoint="0.501,1">
+            <GradientStop Color="#FFF" Offset="0"/>
+            <GradientStop Color="#DDD" Offset="0.01"/>
+            <GradientStop Color="#AAA" Offset="0.99"/>
+            <GradientStop Color="#888" Offset="1"/>
+        </LinearGradientBrush>
+        <DataTemplate x:Key="PlayDVBViewer">
+            <GroupBox Header="{x:Static properties:Resources.PlayInDVBViewer}" UseLayoutRounding="True" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{x:Static properties:Resources.ChooseDVBViewer}" Margin="5" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" ItemsSource="{Binding Clients.Items}" SelectedItem="{Binding Client}" SelectedValuePath="Name" DisplayMemberPath="Name" Margin="5" Padding="5" VerticalAlignment="Center"  Background="Transparent"/>
+                    <!--<Button Grid.Column="1" Grid.Row="1" x:Name="btnPlay" Click="BtnPlay_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Playback}"/>-->
+                    <Button Grid.Column="1" Grid.Row="1" Command="{Binding BtnPlayClick}" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Playback}"/>
+                </Grid>
+            </GroupBox>
+        </DataTemplate>
+        <DataTemplate x:Key="PlayLocalPlayer">
+            <GroupBox Header="{x:Static properties:Resources.PlayBackOtherOptions}" UseLayoutRounding="True" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" TextAlignment="Center" Text="{x:Static properties:Resources.LocalPlayer}" Margin="5" VerticalAlignment="Center" Grid.ColumnSpan="3" HorizontalAlignment="Stretch"/>
+                    <!--<Button Grid.Column="0" Grid.Row="1" x:Name="btnVideoplayer" Click="BtnVideoplayer_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Play}"/>-->
+                    <Button Grid.Column="0" Grid.Row="1" Command="{Binding BtnVideoPlayerClick}" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.Play}"/>
+                    <!--<Button Grid.Column="2" Grid.Row="1" x:Name="btnVideoplayerList" Click="BtnVideoplayerList_Click" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.PlayCompleteList}"/>-->
+                    <Button Grid.Column="2" Grid.Row="1" Command="{Binding BtnVideoPlayerListClick}" Margin="5" Padding="5" VerticalAlignment="Center" Background="Transparent" Content="{x:Static properties:Resources.PlayCompleteList}"/>
+                </Grid>
+            </GroupBox>
+        </DataTemplate>
+        <SolidColorBrush x:Key="AlternateBrush" Color="#19106BB8"/>
+        <BooleanToVisibilityConverter x:Key="b2v" />
     </Application.Resources>
 </Application>

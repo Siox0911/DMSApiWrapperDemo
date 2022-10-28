@@ -16,7 +16,12 @@ namespace DMSApiWrapperDemo
         /// Wird true wenn das Hamburgermenu eingeklappt ist. (Default)
         /// </summary>
         private bool hamburgerMenuCollapsed = true;
+
+        /// <summary>
+        /// Wird true, wenn beim Start ein Fehler auftritt.
+        /// </summary>
         private bool error;
+
         /// <summary>
         /// Die Api
         /// </summary>
@@ -25,10 +30,11 @@ namespace DMSApiWrapperDemo
         public MainWindow()
         {
             InitializeComponent();
+            //Die ToolTip Zeit wird auf 25 Sekunden angehoben
             ToolTipService.ShowDurationProperty.OverrideMetadata(typeof(DependencyObject), new FrameworkPropertyMetadata(25000));
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //TODO: Es gibt noch kein Item für die Anwendung
             //Icon = Properties.Resources.Werkbuch464x64.ToImageSource();
@@ -48,7 +54,7 @@ namespace DMSApiWrapperDemo
             //Wenn etwas bei der Instanziierung schief geht, dann gehe direkt zur Einstellungsseite
             try
             {
-                var version = dvbApi.ServerVersion;
+                var version = await dvbApi.ServerVersionAsync;
                 Title = $"DMSApiWrapperDemo {Assembly.GetExecutingAssembly().GetName().Version}";
                 Title = $"{Title} - {Properties.Resources.ConnectedWith} {version.Version}";
                 error = false;
@@ -101,26 +107,42 @@ namespace DMSApiWrapperDemo
                         //HamburgerMenu schließen
                         if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
                         break;
+                    case ("btnLiveTv"):
+                        if (!error)
+                        {
+                            var ptv = PageTv.GetInstance() ?? new PageTv();
+                            frameContent.Navigate(ptv);
+                        }
+                        //HamburgerMenu schließen
+                        if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
+                        break;
+                    case ("btnEPG"):
+                        if (!error)
+                        {
+                        }
+                        //HamburgerMenu schließen
+                        if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
+                        break;
                     case ("btnClient"):
                         if (!error)
                         {
-                            //HamburgerMenu schließen
-                            if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
                         }
+                        //HamburgerMenu schließen
+                        if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
                         break;
                     case ("btnTasks"):
                         if (!error)
                         {
-                            //HamburgerMenu schließen
-                            if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
                         }
+                        //HamburgerMenu schließen
+                        if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
                         break;
                     case ("btnSrvStatus"):
                         if (!error)
                         {
-                            //HamburgerMenu schließen
-                            if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
                         }
+                        //HamburgerMenu schließen
+                        if (!hamburgerMenuCollapsed) OpenCloseHamburgerMenu();
                         break;
                     case ("btnSettings"):
                         var settings = PageEinstellungen.GetInstance() ?? new PageEinstellungen();
@@ -155,7 +177,6 @@ namespace DMSApiWrapperDemo
             }
         }
 
-
         /// <summary>
         /// Öffnet und schließt das HamburgerMenu
         /// </summary>
@@ -164,12 +185,12 @@ namespace DMSApiWrapperDemo
             //Da es keine UWP Anwendung ist, helfen wir uns hier drüber.
             if (hamburgerMenuCollapsed)
             {
-                stackMenuLeft.Width = 250;
+                stackMenuLeft.Width = 650;
                 hamburgerMenuCollapsed = false;
             }
             else
             {
-                stackMenuLeft.Width = 54;
+                stackMenuLeft.Width = 52;
                 hamburgerMenuCollapsed = true;
             }
         }
